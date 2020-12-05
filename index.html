@@ -64,19 +64,80 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-乐优商城" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hexo搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" class="article-date">
-  <time datetime="2020-12-05T03:13:13.783Z" itemprop="datePublished">2020-12-05</time>
+    <a href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2020-12-04T15:29:12.000Z" itemprop="datePublished">2020-12-04</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/">Vegeta的第一篇博客</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-SpringCloud"><a href="#1-SpringCloud" class="headerlink" title="1 SpringCloud"></a>1 SpringCloud</h2><h3 id="1-1-Zuul网关"><a href="#1-1-Zuul网关" class="headerlink" title="1.1 Zuul网关"></a>1.1 Zuul网关</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">10010</span></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: itcast-zuul</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:10086/eureka</span></span><br><span class="line">zuul:</span><br><span class="line">  routes: #这个路由可以配置多个，想暴露哪个接口直接再配置一个就可以了</span><br><span class="line">    itcast-provider1: /providerUser<span class="comment">/**   #将符合path规则的一切请求，都代理到 url参数指定的地址,itcast-provider1是服务ID，不能随便瞎起名，这里的意思就是说将符合/providerUser/**这个路径规则的请求路由到itcast-provider1，下面同理。</span></span><br><span class="line"><span class="comment">    itcast-consumer1: /consumerUser/**</span></span><br><span class="line"><span class="comment">  prefix: /api #路由前缀</span></span><br><span class="line"><span class="comment">           </span></span><br><span class="line"><span class="comment"> # 核心句：我们将符合`path` 规则的一切请求，都代理到 `url`参数指定的地址</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
+        <h2 id="Vegeta"><a href="#Vegeta" class="headerlink" title="Vegeta"></a>Vegeta</h2><h3 id="hexo搭建"><a href="#hexo搭建" class="headerlink" title="hexo搭建"></a>hexo搭建</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器，或者直接nrm切换镜像源工具我感觉更好，nrm使用教程在最下面，建议nrm<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n “我的第一篇文章” #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件<br>-—<br>#配置_config.yml<br>-—-</p>
+<p>Deployment</p>
+<p>Docs: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">https://hexo.io/docs/deployment.html</a></p>
+<p>​    deploy:<br>          type: git<br>         repo: <a target="_blank" rel="noopener" href="https://github.com/YourGithubName/YourGithubName.github.io.git">https://github.com/YourGithubName/YourGithubName.github.io.git</a><br>          branch: master   #注意，这里要看你githhub默认分支是哪个<br>-—-<br>hexo d    #部署到Github仓库里<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
+<p> git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地，嫌慢直接根据上面地址下载解压到对应的themes/yilia路径下也行</p>
+<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
+<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo d    #部署到远程Github仓库<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客</p>
+<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>我们首先安装nrm，这里<code>-g</code>代表全局安装。可能需要一点儿时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nrm -g</span><br></pre></td></tr></table></figure>
+
+<p>![1529596099952](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596099952.png)</p>
+<p>然后通过<code>nrm ls</code>命令查看npm的仓库列表,带*的就是当前选中的镜像仓库：</p>
+<p>![1529596219439](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596219439.png)</p>
+<p>通过<code>nrm use taobao</code>来指定要使用的镜像源：</p>
+<p>![1529596312671](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596312671.png)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/04/hexo%E6%90%AD%E5%BB%BA/" data-id="ckib4wh8m00002sv8eecufayr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-乐优商城" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" class="article-date">
+  <time datetime="2020-12-03T16:00:00.000Z" itemprop="datePublished">2020-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/">leyou</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-格式"><a href="#0-格式" class="headerlink" title="0 格式"></a>0 格式</h2><h2 id="1-SpringCloud"><a href="#1-SpringCloud" class="headerlink" title="1 SpringCloud"></a>1 SpringCloud</h2><h3 id="1-1-Zuul网关"><a href="#1-1-Zuul网关" class="headerlink" title="1.1 Zuul网关"></a>1.1 Zuul网关</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">10010</span></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: itcast-zuul</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:10086/eureka</span></span><br><span class="line">zuul:</span><br><span class="line">  routes: #这个路由可以配置多个，想暴露哪个接口直接再配置一个就可以了</span><br><span class="line">    itcast-provider1: /providerUser<span class="comment">/**   #将符合path规则的一切请求，都代理到 url参数指定的地址,itcast-provider1是服务ID，不能随便瞎起名，这里的意思就是说将符合/providerUser/**这个路径规则的请求路由到itcast-provider1，下面同理。</span></span><br><span class="line"><span class="comment">    itcast-consumer1: /consumerUser/**</span></span><br><span class="line"><span class="comment">  prefix: /api #路由前缀</span></span><br><span class="line"><span class="comment">           </span></span><br><span class="line"><span class="comment"> # 核心句：我们将符合`path` 规则的一切请求，都代理到 `url`参数指定的地址</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -196,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" data-id="ckib4o3mu0001lov88ml7ge4t" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" data-id="ckib4wh8q00012sv85e9rgohu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -208,13 +269,23 @@
   
     <article id="post-Python" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/12/05/Python/" class="article-date">
-  <time datetime="2020-12-05T03:13:13.783Z" itemprop="datePublished">2020-12-05</time>
+    <a href="/2020/12/04/Python/" class="article-date">
+  <time datetime="2020-12-03T16:00:00.000Z" itemprop="datePublished">2020-12-04</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/04/Python/">Python</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -694,58 +765,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/05/Python/" data-id="ckib4o3mx0002lov8enmi32t2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hexo搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/" class="article-date">
-  <time datetime="2020-12-04T15:29:12.000Z" itemprop="datePublished">2020-12-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/">Vegeta的第一篇博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Vegeta"><a href="#Vegeta" class="headerlink" title="Vegeta"></a>Vegeta</h2><h3 id="hexo搭建"><a href="#hexo搭建" class="headerlink" title="hexo搭建"></a>hexo搭建</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器，或者直接nrm切换镜像源工具我感觉更好，nrm使用教程在最下面，建议nrm<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n “我的第一篇文章” #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件<br>-—<br>#配置_config.yml<br>-—-</p>
-<p>Deployment</p>
-<p>Docs: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">https://hexo.io/docs/deployment.html</a></p>
-<p>​    deploy:<br>          type: git<br>         repo: <a target="_blank" rel="noopener" href="https://github.com/YourGithubName/YourGithubName.github.io.git">https://github.com/YourGithubName/YourGithubName.github.io.git</a><br>          branch: master   #注意，这里要看你githhub默认分支是哪个<br>-—-<br>hexo d    #部署到Github仓库里<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
-<p> git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地，嫌慢直接根据上面地址下载解压到对应的themes/yilia路径下也行</p>
-<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
-<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo d    #部署到远程Github仓库<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客</p>
-<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>我们首先安装nrm，这里<code>-g</code>代表全局安装。可能需要一点儿时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nrm -g</span><br></pre></td></tr></table></figure>
-
-<p>![1529596099952](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596099952.png)</p>
-<p>然后通过<code>nrm ls</code>命令查看npm的仓库列表,带*的就是当前选中的镜像仓库：</p>
-<p>![1529596219439](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596219439.png)</p>
-<p>通过<code>nrm use taobao</code>来指定要使用的镜像源：</p>
-<p>![1529596312671](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596312671.png)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/04/hexo%E6%90%AD%E5%BB%BA/" data-id="ckib4o3mp0000lov8e8ql0qoi" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/04/Python/" data-id="ckib4wh8z00022sv8gb22ec39" class="article-share-link">Share</a>
       
       
     </footer>
@@ -786,15 +806,15 @@
       <ul>
         
           <li>
-            <a href="/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/05/Python/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/">Vegeta的第一篇博客</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/">leyou</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/04/Python/">Python</a>
           </li>
         
       </ul>

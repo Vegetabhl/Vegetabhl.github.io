@@ -5,21 +5,21 @@
   
 
   
-  <title>Hexo</title>
+  <title>leyou | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 SpringCloud1.1 Zuul网关1234567891011121314151617server:  port: 10010spring:  application:    name: itcast-zuuleureka:  client:    service-url:      defaultZone: http:&#x2F;&#x2F;localhost:10086&#x2F;eurekazuul:  rou">
+  <meta name="description" content="0 格式1 SpringCloud1.1 Zuul网关1234567891011121314151617server:  port: 10010spring:  application:    name: itcast-zuuleureka:  client:    service-url:      defaultZone: http:&#x2F;&#x2F;localhost:10086&#x2F;eurekazuul:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/index.html">
+<meta property="og:title" content="leyou">
+<meta property="og:url" content="http://example.com/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 SpringCloud1.1 Zuul网关1234567891011121314151617server:  port: 10010spring:  application:    name: itcast-zuuleureka:  client:    service-url:      defaultZone: http:&#x2F;&#x2F;localhost:10086&#x2F;eurekazuul:  rou">
+<meta property="og:description" content="0 格式1 SpringCloud1.1 Zuul网关1234567891011121314151617server:  port: 10010spring:  application:    name: itcast-zuuleureka:  client:    service-url:      defaultZone: http:&#x2F;&#x2F;localhost:10086&#x2F;eurekazuul:">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/Shinelon/AppData/Roaming/Typora/typora-user-images/image-20201003195727100.png">
 <meta property="og:image" content="c:/Users/Shinelon/AppData/Roaming/Typora/typora-user-images/image-20201003203428667.png">
 <meta property="og:image" content="c:/Users/Shinelon/AppData/Roaming/Typora/typora-user-images/image-20201203124504647.png">
 <meta property="og:image" content="c:/Users/Shinelon/AppData/Roaming/Typora/typora-user-images/image-20201203124523583.png">
-<meta property="article:published_time" content="2020-12-05T03:13:13.783Z">
-<meta property="article:modified_time" content="2020-12-03T04:57:52.901Z">
+<meta property="article:published_time" content="2020-12-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-05T03:25:03.210Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/Shinelon/AppData/Roaming/Typora/typora-user-images/image-20201003195727100.png">
@@ -73,17 +73,27 @@
       <div class="outer">
         <section id="main"><article id="post-乐优商城" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" class="article-date">
-  <time datetime="2020-12-05T03:13:13.783Z" itemprop="datePublished">2020-12-05</time>
+    <a href="/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" class="article-date">
+  <time datetime="2020-12-03T16:00:00.000Z" itemprop="datePublished">2020-12-04</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      leyou
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-SpringCloud"><a href="#1-SpringCloud" class="headerlink" title="1 SpringCloud"></a>1 SpringCloud</h2><h3 id="1-1-Zuul网关"><a href="#1-1-Zuul网关" class="headerlink" title="1.1 Zuul网关"></a>1.1 Zuul网关</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">10010</span></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: itcast-zuul</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:10086/eureka</span></span><br><span class="line">zuul:</span><br><span class="line">  routes: #这个路由可以配置多个，想暴露哪个接口直接再配置一个就可以了</span><br><span class="line">    itcast-provider1: /providerUser<span class="comment">/**   #将符合path规则的一切请求，都代理到 url参数指定的地址,itcast-provider1是服务ID，不能随便瞎起名，这里的意思就是说将符合/providerUser/**这个路径规则的请求路由到itcast-provider1，下面同理。</span></span><br><span class="line"><span class="comment">    itcast-consumer1: /consumerUser/**</span></span><br><span class="line"><span class="comment">  prefix: /api #路由前缀</span></span><br><span class="line"><span class="comment">           </span></span><br><span class="line"><span class="comment"> # 核心句：我们将符合`path` 规则的一切请求，都代理到 `url`参数指定的地址</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
+        <h2 id="0-格式"><a href="#0-格式" class="headerlink" title="0 格式"></a>0 格式</h2><h2 id="1-SpringCloud"><a href="#1-SpringCloud" class="headerlink" title="1 SpringCloud"></a>1 SpringCloud</h2><h3 id="1-1-Zuul网关"><a href="#1-1-Zuul网关" class="headerlink" title="1.1 Zuul网关"></a>1.1 Zuul网关</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">10010</span></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: itcast-zuul</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:10086/eureka</span></span><br><span class="line">zuul:</span><br><span class="line">  routes: #这个路由可以配置多个，想暴露哪个接口直接再配置一个就可以了</span><br><span class="line">    itcast-provider1: /providerUser<span class="comment">/**   #将符合path规则的一切请求，都代理到 url参数指定的地址,itcast-provider1是服务ID，不能随便瞎起名，这里的意思就是说将符合/providerUser/**这个路径规则的请求路由到itcast-provider1，下面同理。</span></span><br><span class="line"><span class="comment">    itcast-consumer1: /consumerUser/**</span></span><br><span class="line"><span class="comment">  prefix: /api #路由前缀</span></span><br><span class="line"><span class="comment">           </span></span><br><span class="line"><span class="comment"> # 核心句：我们将符合`path` 规则的一切请求，都代理到 `url`参数指定的地址</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -203,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" data-id="ckib4o3mu0001lov88ml7ge4t" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" data-id="ckib4wh8q00012sv85e9rgohu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,10 +222,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vegeta的第一篇博客
+        
+      </div>
+    </a>
   
-    <a href="/2020/12/05/Python/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2020/12/04/Python/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">Python</div>
     </a>
   
 </nav>
@@ -252,15 +271,15 @@
       <ul>
         
           <li>
-            <a href="/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/05/Python/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/">Vegeta的第一篇博客</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/">leyou</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/04/Python/">Python</a>
           </li>
         
       </ul>
