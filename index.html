@@ -152,34 +152,127 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Vegeta" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-乐优商城" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/04/Vegeta/">Vegeta的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/04/Vegeta/" class="archive-article-date">
-  	<time datetime="2020-12-04T15:29:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-04</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="hexo搭建的第一个博客"><a href="#hexo搭建的第一个博客" class="headerlink" title="hexo搭建的第一个博客"></a>hexo搭建的第一个博客</h2><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n “我的第一篇文章” #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件<br>-—<br>#配置_config.yml<br>-—-</p>
-<pre><code># Deployment
+        <h2 id="1-SpringCloud"><a href="#1-SpringCloud" class="headerlink" title="1 SpringCloud"></a>1 SpringCloud</h2><h3 id="1-1-Zuul网关"><a href="#1-1-Zuul网关" class="headerlink" title="1.1 Zuul网关"></a>1.1 Zuul网关</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">10010</span></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: itcast-zuul</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:10086/eureka</span></span><br><span class="line">zuul:</span><br><span class="line">  routes: #这个路由可以配置多个，想暴露哪个接口直接再配置一个就可以了</span><br><span class="line">    itcast-provider1: /providerUser<span class="comment">/**   #将符合path规则的一切请求，都代理到 url参数指定的地址,itcast-provider1是服务ID，不能随便瞎起名，这里的意思就是说将符合/providerUser/**这个路径规则的请求路由到itcast-provider1，下面同理。</span></span><br><span class="line"><span class="comment">    itcast-consumer1: /consumerUser/**</span></span><br><span class="line"><span class="comment">  prefix: /api #路由前缀</span></span><br><span class="line"><span class="comment">           </span></span><br><span class="line"><span class="comment"> # 核心句：我们将符合`path` 规则的一切请求，都代理到 `url`参数指定的地址</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
 
-## Docs: https://hexo.io/docs/deployment.html</code></pre>
-<p>​    deploy:<br>          type: git<br>         repo: <a target="_blank" rel="noopener" href="https://github.com/YourGithubName/YourGithubName.github.io.git">https://github.com/YourGithubName/YourGithubName.github.io.git</a><br>          branch: master   #注意，这里要看你githhub默认分支是哪个<br>-—-<br>hexo d    #部署到Github仓库里<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
-<p> git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地，嫌慢直接根据上面地址下载解压到对应的themes/yilia路径下也行</p>
-<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
-<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo d    #部署到远程Github仓库<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客</p>
+
+
+<h3 id="1-2-consumer服务消费方"><a href="#1-2-consumer服务消费方" class="headerlink" title="1.2 consumer服务消费方"></a>1.2 consumer服务消费方</h3><p>yml 配置文件常见配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">8080</span></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: itcast-consumer1  # 应用服务实例名称，会在Eureka注册中心中显示</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:10086/eureka  </span></span><br><span class="line">    registry-fetch-interval-seconds: 5  #每5秒拉去一次服务，这里设置小一点一遍尽快获取服务的更新，但是在生产环境下默认是30秒，我们不需要修改。</span><br><span class="line">hystrix:</span><br><span class="line">  command:</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      execution:</span><br><span class="line">        isolation:</span><br><span class="line">          thread:</span><br><span class="line">            timeoutInMilliseconds: 6000 # 设置hystrix的超时时间为6000ms,Hystix的默认超时时长为1000ms</span><br><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true # 开启Feign的熔断功能,默认这里是关闭的，开启后</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-3-registry注册中心"><a href="#1-3-registry注册中心" class="headerlink" title="1.3 registry注册中心"></a>1.3 registry注册中心</h3><p>yml 配置文件常见配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">10086</span></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: itcast-eureka # 应用名称，会在Eureka注册中心中显示</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:$&#123;server.port&#125;/eureka  #EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址</span></span><br><span class="line">	register-with-eureka: false # 注册中心不注册自己</span><br><span class="line">    fetch-registry: false # 在这里指的是注册中心本身不去拉去服务</span><br><span class="line">  server:</span><br><span class="line">    enable-self-preservation: false # 关闭自我保护模式（默认为打开）</span><br><span class="line">    eviction-interval-timer-in-ms: 5000 # 扫描失效服务的间隔时间（默认为为60*1000ms）</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-4-provider服务提供方"><a href="#1-4-provider服务提供方" class="headerlink" title="1.4 provider服务提供方"></a>1.4 provider服务提供方</h3><p>yml 配置文件常见配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">8090</span></span><br><span class="line">spring:</span><br><span class="line">  thymeleaf:</span><br><span class="line">    cache: <span class="keyword">false</span></span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql:<span class="comment">//localhost:3306/db4?characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=UTC</span></span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">  application:</span><br><span class="line">      name: itcast-provider1 # 应用名称，会在Eureka注册中心中显示</span><br><span class="line">mybatis:</span><br><span class="line">  type-aliases-<span class="keyword">package</span>: cn.itcast.pojo</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:10086/eureka</span></span><br><span class="line">  instance:</span><br><span class="line">    lease-renewal-interval-in-seconds: 5 #每5秒一次心跳时间</span><br><span class="line">    lease-expiration-duration-in-seconds: 15 #过期时间,超过15秒没有发送心跳就会过期，也就是认为服务宕机了</span><br><span class="line">    </span><br><span class="line">#每隔5秒发送一次心跳,即续约(rnew)证明自己还活着，超过15秒没有发送则说明死亡，注册中心就会将该实例剔除掉，在生产环境下默认为30,90不要动，但是在开发阶段可以设置的小一些。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="1-5-注意："><a href="#1-5-注意：" class="headerlink" title="1.5 注意："></a>1.5 注意：</h3><p>​    这里需要注意下，无论是服务消费方还是服务提供方，他们其实都是一个个的服务，也就是说服务方也可以是消费方，消费方也可以是服务方。</p>
+<h2 id="1-6-熔断"><a href="#1-6-熔断" class="headerlink" title="1.6 熔断"></a>1.6 熔断</h2><p>服务器支持的线程和并发数有限，请求一直阻塞，会导致服务器资源耗尽，从而导致所有其它服务都不可用，形成雪崩效应。</p>
+<p>Hystrix为每个依赖服务调用分配一个小的线程池，如果线程池已满调用将被立即拒绝，默认不采用排队.加速失败判定时间。</p>
+<h3 id="1-6-1-开启熔断"><a href="#1-6-1-开启熔断" class="headerlink" title="1.6.1 开启熔断"></a>1.6.1 开启熔断</h3><p>由于类上的注解越来越多，于是Spring就提供了一个组合注解：@SpringCloudApplication，相当于下面三个注解</p>
+<p>/<em>@SpringBootApplication<br>@EnableDiscoveryClient //开启Eureka客户端功能<br>@EnableCircuitBreaker //开启熔断</em>/</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*@SpringBootApplication</span></span><br><span class="line"><span class="comment">@EnableDiscoveryClient //开启Eureka客户端功能</span></span><br><span class="line"><span class="comment">@EnableCircuitBreaker //开启熔断*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringCloudApplication</span><span class="comment">//这个组合注解就相当于上面三个</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer1Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Consumer1Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-6-2编写降级逻辑（这里可以着重看下一节feign，将其合在一起写了）"><a href="#1-6-2编写降级逻辑（这里可以着重看下一节feign，将其合在一起写了）" class="headerlink" title="1.6.2编写降级逻辑（这里可以着重看下一节feign，将其合在一起写了）"></a>1.6.2编写降级逻辑（这里可以着重看下一节feign，将其合在一起写了）</h3><p>我们改造itcast-service-consumer，当目标服务的调用出现故障，我们希望快速失败，给用户一个友好提示。因此需要提前编写好失败时的降级处理逻辑，要使用HystixCommond来完成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;consumer/user&quot;)</span></span><br><span class="line"><span class="meta">@DefaultProperties(defaultFallback = &quot;fallBackMethod&quot;)</span> <span class="comment">// 指定一个类的全局熔断方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@HystrixCommand</span> <span class="comment">// 标记该方法需要熔断,并且这里没有指定熔断放方法名，所以使用的是全局的熔断方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryUserById</span><span class="params">(<span class="meta">@RequestParam(&quot;id&quot;)</span> Long id)</span> </span>&#123;</span><br><span class="line">        String user = <span class="keyword">this</span>.restTemplate.getForObject(<span class="string">&quot;http://service-provider/user/&quot;</span> + id, String.class);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">  	<span class="comment">//全局熔断方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fallBackMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;请求繁忙，请稍后再试！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-6-3-设置超时"><a href="#1-6-3-设置超时" class="headerlink" title="1.6.3 设置超时"></a>1.6.3 设置超时</h3><p>在之前的案例中，请求在超过1秒后都会返回错误信息，这是因为Hystix的默认超时时长为1，我们可以通过配置修改这个值：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hystrix:</span></span><br><span class="line">  <span class="attr">command:</span></span><br><span class="line">    <span class="attr">default:</span></span><br><span class="line">      <span class="attr">execution:</span></span><br><span class="line">        <span class="attr">isolation:</span></span><br><span class="line">          <span class="attr">thread:</span></span><br><span class="line">            <span class="attr">timeoutInMilliseconds:</span> <span class="number">6000</span> <span class="comment"># 设置hystrix的超时时间为6000ms</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>改造服务提供者</strong></p>
+<p>改造服务提供者的UserController接口，随机休眠一段时间，以触发熔断：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">queryUserById</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Thread.sleep(<span class="number">6000</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.userService.queryUserById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-7-Feign"><a href="#1-7-Feign" class="headerlink" title="1.7 Feign"></a>1.7 Feign</h2><p>服务间的内部调用</p>
+<h3 id="1-7-1-开启Feign功能"><a href="#1-7-1-开启Feign功能" class="headerlink" title="1.7.1 开启Feign功能"></a>1.7.1 开启Feign功能</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringCloudApplication</span><span class="comment">//这个组合注解就相当于上面三个</span></span><br><span class="line"><span class="meta">@EnableFeignClients</span> <span class="comment">//开启feign的启动器，有了这个就不需要再使用RestTemplate了，因为它内部已经集成了</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer1Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Consumer1Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-7-2-Feign的客户端"><a href="#1-7-2-Feign的客户端" class="headerlink" title="1.7.2 Feign的客户端"></a>1.7.2 Feign的客户端</h3><p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201003195727100.png" alt="image-20201003195727100"></p>
+<h4 id="1-7-2-1内容"><a href="#1-7-2-1内容" class="headerlink" title="1.7.2.1内容"></a>1.7.2.1内容</h4><p>1 Controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/consumer&quot;)</span></span><br><span class="line"><span class="comment">//@DefaultProperties(defaultFallback = &quot;fallbackMethod&quot;)//这里是指定一个全局的熔断方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConsumerController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Autowired</span></span><br><span class="line">   <span class="keyword">private</span> UserClient userClient; <span class="comment">//注入feign实例对象</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="comment">//@HystrixCommand //这里没有指定熔断放方法名，所以使用的是全局的熔断方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">findById</span><span class="params">(<span class="meta">@RequestParam(&quot;id&quot;)</span> Long id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userClient.findById(id).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    //这是一个全局的熔断方法，注意这里的返回值类型</span></span><br><span class="line"><span class="comment">    public String fallbackMethod() &#123;</span></span><br><span class="line"><span class="comment">        return &quot;服务正在忙，请稍后再试!!!&quot;;</span></span><br><span class="line"><span class="comment">    &#125;*/</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2 UserClient 接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@FeignClient(value = &quot;itcast-provider1&quot;,fallback = UserClientFallback.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserClient</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user/findById/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">findById</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3 UserClientFallback</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserClientFallback</span> <span class="keyword">implements</span> <span class="title">UserClient</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">findById</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setUsername(<span class="string">&quot;别看了,服务器忙着呢！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-8-Zuul网关"><a href="#1-8-Zuul网关" class="headerlink" title="1.8 Zuul网关"></a>1.8 Zuul网关</h2><p>网关的 一些基本配置，如路由配置等在上面1.1节中</p>
+<h3 id="1-8-1-过滤器"><a href="#1-8-1-过滤器" class="headerlink" title="1.8.1 过滤器"></a>1.8.1 过滤器</h3><p>四种过滤类型：pre,  routing,  post,  error</p>
+<p>![1529152248172](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day03-springcloud/笔记/assets/1529152248172.png)</p>
+<p>正常路程： pre-routing-post-response</p>
+<p>异常流程</p>
+<p>1：pre或者routing出错，则直接到error,再到post,然后response结束</p>
+<p>​    若error也出错，则到post,然后response结束</p>
+<p>​        若post也出错，则就直接response结束了</p>
+<p>2:pre和routing正常，但是post异常，则走error,然后直接response结束，error及时出错不再走post了，否则就成死循环了。</p>
+<h3 id="1-8-2-自定义过滤器"><a href="#1-8-2-自定义过滤器" class="headerlink" title="1.8.2 自定义过滤器"></a>1.8.2 自定义过滤器</h3><p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201003203428667.png" alt="image-20201003203428667"></p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LognFilter</span> <span class="keyword">extends</span> <span class="title">ZuulFilter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 过滤器类型，分为四种：pre,route,post,error，这里使用pre过滤器</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">filterType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;pre&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *过滤器的优先级，返回值越小，优先级越高，这里不设置为0，因为后续可能会设置多个过滤器</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">filterOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否执行该过滤器</span></span><br><span class="line"><span class="comment">     * 返回值为true:执行run方法</span></span><br><span class="line"><span class="comment">     * 返回值为false:不执行run方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 编写过滤器业务逻辑</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> ZuulException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> ZuulException </span>&#123;</span><br><span class="line">        <span class="comment">//初始化contex上下文对象</span></span><br><span class="line">        RequestContext context = RequestContext.getCurrentContext();<span class="comment">//注意是com.netflix.zuul.context包下  ;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取request对象</span></span><br><span class="line">        HttpServletRequest request = context.getRequest();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取参数</span></span><br><span class="line">        String token = request.getParameter(<span class="string">&quot;token&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isBlank(token))&#123;</span><br><span class="line">            <span class="comment">//拦截</span></span><br><span class="line">            context.setSendZuulResponse(<span class="keyword">false</span>);</span><br><span class="line">            <span class="comment">//设置响应状态码，401身份未认证</span></span><br><span class="line">            context.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);</span><br><span class="line">            <span class="comment">//设置响应提示</span></span><br><span class="line">            context.setResponseBody(<span class="string">&quot;request error!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-9-vue-router"><a href="#1-9-vue-router" class="headerlink" title="1.9 vue-router"></a>1.9 vue-router</h2><h3 id="1-9-1-路由vue-router示例代码"><a href="#1-9-1-路由vue-router示例代码" class="headerlink" title="1.9.1 路由vue-router示例代码"></a>1.9.1 路由vue-router示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/login&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/register&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">&lt;!--这个是一个锚点--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../node_modules/vue/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../node_modules/vue-router/dist/vue-router.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/loginForm.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/registForm.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> router=<span class="keyword">new</span> VueRouter(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//这里定义了一些路由的规则</span></span></span><br><span class="line">       routes:[</span><br><span class="line">           &#123;</span><br><span class="line"><span class="javascript">               path:<span class="string">&quot;/login&quot;</span>,</span></span><br><span class="line">               component:loginForm</span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;</span><br><span class="line"><span class="javascript">               path:<span class="string">&quot;/register&quot;</span>,</span></span><br><span class="line">               component:registerForm</span><br><span class="line">           &#125;</span><br><span class="line">       ]</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> vm=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">        data:&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line"><span class="javascript">        router <span class="comment">// 引用上面定义的router对象</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-0-nginx解决端口问题"><a href="#2-0-nginx解决端口问题" class="headerlink" title="2.0 nginx解决端口问题"></a>2.0 nginx解决端口问题</h2><h3 id="2-0-1-nginx作为反向代理"><a href="#2-0-1-nginx作为反向代理" class="headerlink" title="2.0.1 nginx作为反向代理"></a>2.0.1 nginx作为反向代理</h3><p>首先先看下什么是正向代理</p>
+<p><strong>正向代理</strong>: </p>
+<p>反向代理不好理解，<strong>正向代理</strong>大家总有用过，翻墙工具其实就是一个正向代理工具。它会把 们访问墙外服务器server的网页请求，代理到一个可以访问该网站的代理服务器proxy，这个代理服务器proxy把墙外服务器server上的网页内容获取，再转发给客户。具体的流程如下图。</p>
+<p>概括说：就是客户端和代理服务器可以直接互相访问，属于一个LAN（局域网）；代理对用户是<strong>非透明</strong>的，即用户需要自己操作或者感知得到自己的请求被发送到代理服务器；代理服务器通过<strong>代理用户端的请求</strong>来向域外服务器请求响应内容。</p>
+<p><strong>反向代理：</strong></p>
+<p>在<strong>反向代理</strong>中（事实上，这种情况基本发生在所有的大型网站的页面请求中），客户端发送的请求，想要访问server服务器上的内容。但将被发送到一个代理服务器proxy，这个代理服务器将把请求代理到和自己属于同一个LAN下的内部服务器上，而用户真正想获得的内容就储存在这些内部服务器上。看到区别了吗，这里proxy服务器代理的并不是客户，而是服务器，即向外部客户端提供了一个统一的代理入口，客户端的请求，都先经过这个proxy服务器，至于在内网真正访问哪台服务器内容，由这个proxy去控制。一般代理是指代理客户端，而这里代理的对象是服务器，这就是“反向”这个词的意思。Nginx就是来充当这个proxy的作用。 概括说：就是代理服务器和真正server服务器可以直接互相访问，属于一个LAN（服务器内网）；代理对用户是<strong>透明</strong>的，即无感知。不论加不加这个反向代理，用户都是通过相同的请求进行的，且不需要任何额外的操作；代理服务器通过<strong>代理内部服务器</strong>接受域外客户端的请求，并将请求发送到对应的内部服务器上。</p>
+<h3 id="2-0-2-nginx启动"><a href="#2-0-2-nginx启动" class="headerlink" title="2.0.2 nginx启动"></a>2.0.2 nginx启动</h3><p>nginx可以通过命令行来启动，操作命令：</p>
+<ul>
+<li>启动：<code>start nginx</code></li>
+<li>停止：<code>nginx -s stop</code></li>
+<li>重新加载：<code>nginx -s reload</code>   （每次更改配置文件后都需要重新加载下）</li>
+</ul>
+<p>启动过程会闪烁一下，启动成功后，任务管理器中会有两个nginx进程：</p>
+<p> ![1532579488518](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day06-商品分类(vuetify-nginx-cors)/笔记/assets/1532579488518.png)</p>
+<h3 id="2-0-3-请求流程"><a href="#2-0-3-请求流程" class="headerlink" title="2.0.3 请求流程"></a>2.0.3 请求流程</h3><ol>
+<li><p>浏览器准备发起请求，访问<a target="_blank" rel="noopener" href="http://mamage.leyou.com,但需要进行域名解析/">http://mamage.leyou.com，但需要进行域名解析</a></p>
+</li>
+<li><p>优先进行本地域名解析，因为我们修改了hosts，所以解析成功，得到地址：127.0.0.1</p>
+</li>
+<li><p>请求被发往解析得到的ip，并且默认使用80端口：<a target="_blank" rel="noopener" href="http://127.0.0.1/">http://127.0.0.1:80</a></p>
+<p>本机的nginx一直监听80端口，因此捕获这个请求</p>
+</li>
+<li><p>nginx中配置了反向代理规则，将manage.leyou.com代理到127.0.0.1:9001，因此请求被转发</p>
+</li>
+<li><p>后台系统的webpack server监听的端口是9001，得到请求并处理，完成后将响应返回到nginx</p>
+</li>
+<li><p>nginx将得到的结果返回到浏览器</p>
+</li>
+</ol>
+<h3 id="2-0-4-注意"><a href="#2-0-4-注意" class="headerlink" title="2.0.4 注意"></a>2.0.4 注意</h3><p>注意：</p>
+<p>​    这里的nginx监听80端口是在本机，即本机的nginx一直监听80端口，捕获我们发送的请求</p>
+<p>  后台系统的webpack server监听的端口是9001，得到请求并处理，完成后将响应返回到nginx</p>
+<h2 id="2-1-项目启动"><a href="#2-1-项目启动" class="headerlink" title="2.1 项目启动"></a>2.1 项目启动</h2><h3 id="2-1-1-后台管理前端"><a href="#2-1-1-后台管理前端" class="headerlink" title="2.1.1 后台管理前端"></a>2.1.1 后台管理前端</h3><p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201203124504647.png" alt="image-20201203124504647"></p>
+<p>在package.json文件中有scripts启动脚本配置，可以输入命令：<code>npm run dev</code>或者<code>npm start</code></p>
+<p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201203124523583.png" alt="image-20201203124523583"></p>
+<p>发现默认的端口是9001。访问：<a target="_blank" rel="noopener" href="http://localhost:9001/">http://localhost:9001</a></p>
 
       
 
@@ -192,7 +285,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/04/Vegeta/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/05/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/">展开全文 >></a>
         </p>
       
 
@@ -222,39 +315,483 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/04/hello-world/" class="archive-article-date">
-  	<time datetime="2020-12-04T15:12:29.718Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-04</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="0-格式"><a href="#0-格式" class="headerlink" title="0 格式"></a>0 格式</h2><p>格式要求如下：</p>
+<ol>
+<li>在索引和内容之间需要加一个空格，包括所有级索引、标题和内容</li>
+<li> 内容顶格书写</li>
+<li> 所有级标题之间需要添加一行空白行</li>
+<li>正文段落首行缩进，但是对于提出的问题不需要缩进</li>
+</ol>
+<h2 id="–"><a href="#–" class="headerlink" title="–"></a>–</h2><p>return;      ：结束当前<strong>方法</strong>，不在方法内无法使用</p>
+<p>break;        :  结束当前循环</p>
+<h2 id="1-变量"><a href="#1-变量" class="headerlink" title="1 变量"></a>1 变量</h2><p>注意事项：</p>
+<ol>
+<li>  Python定义变量的时候只能包含字母、数字、下划线，并且不能以数字开头。</li>
+<li> 严格区分大小写，大小写s不一样，变量也不一样。</li>
+</ol>
+<h2 id="2-格式化输出"><a href="#2-格式化输出" class="headerlink" title="2 格式化输出"></a>2 格式化输出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 小数点后保留两位有效数字</span></span><br><span class="line">print(<span class="string">&#x27;我的体重是%.2f公斤&#x27;</span> % weight)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 表示输出的整数显示位数，不足以0补全，超出当前位数则原样输出</span></span><br><span class="line">print(<span class="string">&#x27;我的学号为%03d&#x27;</span> % stuId)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;我的名字是%s,我今年%d岁了&#x27;</span> % (name, age))</span><br><span class="line"></span><br><span class="line"><span class="comment">#  f&#x27;&#123;表达式&#125;&#x27;</span></span><br><span class="line">print(<span class="string">f&#x27;我叫<span class="subst">&#123;name&#125;</span>,我今年<span class="subst">&#123;age+<span class="number">1</span>&#125;</span>岁了&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="3-转义字符"><a href="#3-转义字符" class="headerlink" title="3 转义字符"></a>3 转义字符</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 转义字符，稍微注意下是反斜杠</span></span><br><span class="line"><span class="comment"># \n</span></span><br><span class="line"><span class="comment"># \t(相当于四个空格间距)</span></span><br><span class="line">print(<span class="string">&quot;Hello\nWorld&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;\tabcde&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+
+<h2 id="4-自己写结束符"><a href="#4-自己写结束符" class="headerlink" title="4 自己写结束符"></a>4 自己写结束符</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;结束符1&quot;</span>, end=<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;结束符2&quot;</span>, end=<span class="string">&quot;...&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;结束符2&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-输入"><a href="#5-输入" class="headerlink" title="5 输入"></a>5 输入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入</span></span><br><span class="line">password = <span class="built_in">input</span>(<span class="string">&quot;请输入密码&quot;</span>)</span><br><span class="line">print(<span class="string">f&#x27;密码是<span class="subst">&#123;password&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="built_in">type</span>(password))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-数据类型"><a href="#6-数据类型" class="headerlink" title="6 数据类型"></a>6 数据类型</h2><h3 id="6-1-转换数据类型的函数"><a href="#6-1-转换数据类型的函数" class="headerlink" title="6.1 转换数据类型的函数"></a>6.1 转换数据类型的函数</h3><table>
+<thead>
+<tr>
+<th>int(x [,base ])</th>
+<th>将x转换为一个整数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float(x)</td>
+<td>将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td>str(x)</td>
+<td>将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td>eval(str)</td>
+<td>用来计算在字符串中的有效Python表达式,并返回⼀个对象</td>
+</tr>
+<tr>
+<td>tuple(s)</td>
+<td>将序列 s 转换为⼀个元组</td>
+</tr>
+<tr>
+<td>list(s)</td>
+<td>将序列 s 转换为一个列表</td>
+</tr>
+</tbody></table>
+<p>​    注意：</p>
+<p>​            每一次转换后都是一个新的值了，用新的变量接收它。</p>
+<h3 id="6-2-eval-–把字符串中的数据转换为它原本的类型"><a href="#6-2-eval-–把字符串中的数据转换为它原本的类型" class="headerlink" title="6.2 eval() –把字符串中的数据转换为它原本的类型"></a>6.2 eval() –把字符串中的数据转换为它原本的类型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># eval() --把字符串中的数据转换为它原本的数据类型</span></span><br><span class="line">str1=<span class="string">&quot;1&quot;</span></span><br><span class="line">str2=<span class="string">&quot;1.1&quot;</span></span><br><span class="line">str3=<span class="string">&quot;[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]&quot;</span></span><br><span class="line">str4=<span class="string">&quot;(&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;)&quot;</span></span><br><span class="line">print(<span class="built_in">type</span>(<span class="built_in">eval</span>(str1)))</span><br><span class="line">print(<span class="built_in">type</span>(<span class="built_in">eval</span>(str2)))</span><br><span class="line">print(<span class="built_in">type</span>(<span class="built_in">eval</span>(str3)))</span><br><span class="line">print(<span class="built_in">type</span>(<span class="built_in">eval</span>(str4)))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-运算符复习"><a href="#7-运算符复习" class="headerlink" title="7 运算符复习"></a>7 运算符复习</h2><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">//</td>
+<td align="center">整除</td>
+<td>9 // 4 输出结果为2</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">取余</td>
+<td>9 % 4 输出结果为 1</td>
+</tr>
+<tr>
+<td align="center">**</td>
+<td align="center">指数</td>
+<td>2 ** 4 输出结果为 16，即 2 * 2 * 2 * 2</td>
+</tr>
+<tr>
+<td align="center">()</td>
+<td align="center">小括号</td>
+<td>小括号⽤用来提高运算优先级，即 (1 + 2) * 3 输出结果为 9</td>
+</tr>
+</tbody></table>
+<p>​    注意：</p>
+<p>​    1是斜杠，不是反斜杠</p>
+<p>​    2在运算中，若有数字为小数，则最后结果也为浮点数，如2*0.5=1.0</p>
+<p>​    3运算中，指数的优先级要高于普通的乘法，如2*3**2=18</p>
+<p>​    </p>
+<h2 id="8-Python-Console"><a href="#8-Python-Console" class="headerlink" title="8 Python Console"></a>8 Python Console</h2><p>在做一些简单测试时可以在Python Console中写代码，数据是保存在内存中临时的</p>
+<h2 id="9-多个变量量赋值"><a href="#9-多个变量量赋值" class="headerlink" title="9 多个变量量赋值"></a>9 多个变量量赋值</h2><h3 id="9-1-多个变量赋相同值"><a href="#9-1-多个变量赋相同值" class="headerlink" title="9.1 多个变量赋相同值"></a>9.1 多个变量赋相同值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; b &#x3D; 10</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="9-2-多个变量赋不相同值"><a href="#9-2-多个变量赋不相同值" class="headerlink" title="9.2 多个变量赋不相同值"></a>9.2 多个变量赋不相同值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num1, float1, str1 &#x3D; 10, 0.5, &#39;hello world&#39;</span><br><span class="line">print(num1)</span><br><span class="line">print(float1)</span><br><span class="line">print(str1)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="10-复合赋值运算符"><a href="#10-复合赋值运算符" class="headerlink" title="10 复合赋值运算符"></a>10 复合赋值运算符</h2><p>注意：</p>
+<p>c=10</p>
+<p>c += 1 * 2 在这个式子中，是先算1 * 2 =2,然后再算c= c+2</p>
+<p>结果c=12</p>
+<h2 id="11逻辑运算符"><a href="#11逻辑运算符" class="headerlink" title="11逻辑运算符"></a>11逻辑运算符</h2><p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20200926194737102.png" alt="image-20200926194737102"></p>
+<h2 id="12-条件语句"><a href="#12-条件语句" class="headerlink" title="12 条件语句"></a>12 条件语句</h2><h3 id="12-1-if嵌套"><a href="#12-1-if嵌套" class="headerlink" title="12.1 if嵌套"></a>12.1 if嵌套</h3><p>if 条件1：<br>    条件1成立执行的代码<br>        if 条件2：<br>            条件2成⽴执行的代码</p>
+<h3 id="12-2-猜拳游戏"><a href="#12-2-猜拳游戏" class="headerlink" title="12.2 猜拳游戏"></a>12.2 猜拳游戏</h3><p> 1 导出random模块</p>
+<p> 2 使用random模块中的随机整数功能–random.randint(开始,结束) </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">player = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;玩家请出拳，0-拳头，1-剪刀，2-布:\n&quot;</span>))</span><br><span class="line">computer = random.randint(<span class="number">0</span>, <span class="number">2</span>) <span class="comment"># 这个方法这种写法随机数有三个0,1,2。也就是说它是左右都包括</span></span><br><span class="line">print(<span class="string">f&quot;电脑出拳为<span class="subst">&#123;computer&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> ((player == <span class="number">0</span> <span class="keyword">and</span> computer == <span class="number">1</span>) <span class="keyword">or</span> (player == <span class="number">1</span> <span class="keyword">and</span> computer == <span class="number">2</span>) <span class="keyword">or</span> (player == <span class="number">2</span> <span class="keyword">and</span> computer == <span class="number">0</span>)):</span><br><span class="line">    print(<span class="string">&quot;玩家获胜&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> (player == computer):</span><br><span class="line">    print(<span class="string">&quot;平局&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&quot;电脑获胜&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="12-3-三目运算符"><a href="#12-3-三目运算符" class="headerlink" title="12.3 三目运算符"></a>12.3 三目运算符</h3><p>条件成立执⾏的表达式 if 条件 else 条件不成立执行的表达式 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 三目运算符</span></span><br><span class="line">aa = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;输入数字aa&quot;</span>))</span><br><span class="line">bb = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;输入数字bb&quot;</span>))</span><br><span class="line">cc = (aa - bb) <span class="keyword">if</span> (aa &gt; bb) <span class="keyword">else</span> (bb - aa)</span><br><span class="line">print(cc)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="13-while循环-嵌套循环"><a href="#13-while循环-嵌套循环" class="headerlink" title="13 while循环(嵌套循环)"></a>13 while循环(嵌套循环)</h2><h3 id="13-1-代码"><a href="#13-1-代码" class="headerlink" title="13.1 代码"></a>13.1 代码</h3><p>注意：</p>
+<p>​        在使用continue的之前一定要修改计数器，否则就会导致死循环现象（对计数器的改变代码通常放在continue的上一行代码）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">j = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> j &lt; <span class="number">5</span>:</span><br><span class="line">    <span class="keyword">if</span> j == <span class="number">2</span>:</span><br><span class="line">        print(<span class="string">&quot;吃饱了&quot;</span>)</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(<span class="string">f&#x27;吃了<span class="subst">&#123;j&#125;</span>个苹果&#x27;</span>)</span><br><span class="line">    j += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>​        使用while嵌套循环的时候记得要把内层嵌套循环的计数器放到里面，注意格式顺序问题</p>
+<p>九九乘法表“(注意联动关系)：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">j = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> j &lt; <span class="number">10</span>:</span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i &lt;= j:</span><br><span class="line">        print(<span class="string">f&quot;<span class="subst">&#123;i&#125;</span>*<span class="subst">&#123;j&#125;</span>=<span class="subst">&#123;j * i&#125;</span> &quot;</span>, end=<span class="string">&quot;\t&quot;</span>)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    print()</span><br><span class="line">    j += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="13-2-while…else"><a href="#13-2-while…else" class="headerlink" title="13.2 while…else"></a>13.2 while…else</h3><p>格式：</p>
+<p>while 条件:<br>    条件成立重复执行的代码<br>else:<br>   循环<strong>正常结束</strong>之后要执行的代码</p>
+<p>注意（同样适用与for循环中的else）：</p>
+<p>1：如果是break结束的循环，则属于非正常结束循环，也就不会执行else之后的代码</p>
+<p>2：如果是continue跳过的循环，则结束后属于正常结束循环，会执行else之后的代码</p>
+<h2 id="14-字符串"><a href="#14-字符串" class="headerlink" title="14 字符串"></a>14 字符串</h2><p>注意 </p>
+<p>单引号和双引号是单行字符串<br>三引号是多行字符串，可以直接输入回车，而不需要用\n来表示<br>也可以用来表示多行注释</p>
+<p>1 三引号也是字符串类型</p>
+<p>2 三引号形式的字符串支持写代码时换行。并且打印输出的时候也是换行的，而单引号和双引号则不行</p>
+<p>3 单引号只能套双引号，反之也一样，当然也可以 通过 \ 的方式来做转义符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 三个引号支持换行</span></span><br><span class="line">str1 = <span class="string">&quot;&quot;&quot;helel</span></span><br><span class="line"><span class="string">world</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">print(<span class="built_in">type</span>(str1[<span class="number">5</span>:<span class="number">6</span>])) <span class="comment">#注意这里，上面的helel后面不是直接跟着w，而是还有个空字符串</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="15-切片：对字符串的切片操作"><a href="#15-切片：对字符串的切片操作" class="headerlink" title="15 切片：对字符串的切片操作"></a>15 切片：对字符串的切片操作</h2><p>切片是指对操作的对象截取其中⼀部分的操作。<strong>字符串、列表、元组</strong>都支持切片操作。</p>
+<h3 id="15-1-语法"><a href="#15-1-语法" class="headerlink" title="15.1 语法"></a>15.1 语法</h3><p>格式：序列[开始位置下标:结束位置下标:步长]</p>
+<h3 id="15-2-代码"><a href="#15-2-代码" class="headerlink" title="15.2 代码"></a>15.2 代码</h3><p>注意：</p>
+<p>左闭右开，只包含左边，不包含右边。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切片</span></span><br><span class="line"><span class="comment"># 序列[开始位置下标:结束位置下标:步长]</span></span><br><span class="line">    <span class="comment"># 默认步长就是1</span></span><br><span class="line">    <span class="comment">#（步长为正数表示从左往右数，为负数表示从右往左走）</span></span><br><span class="line">    <span class="comment">#-1表示最后一个，0表示第一个</span></span><br><span class="line"></span><br><span class="line">str1 = <span class="string">&#x27;012345678&#x27;</span></span><br><span class="line">print(str1[<span class="number">0</span>:<span class="number">4</span>:<span class="number">1</span>])  <span class="comment"># 步长1可以省略，默认步长就是1</span></span><br><span class="line">print(str1[<span class="number">0</span>:<span class="number">4</span>])  <span class="comment"># 默认步长就是1</span></span><br><span class="line"></span><br><span class="line">print(str1[<span class="number">2</span>:])  <span class="comment"># 从下标为2处开始，一直到结束</span></span><br><span class="line">print(str1[:-<span class="number">1</span>])  <span class="comment"># 从第一个字母开始，一直到结束，但是不包含最后一个（左闭右开原则）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#print(str1[-5:-1:-1]) #注意这种输出是没有结果的，因为顺序不对。</span></span><br><span class="line">                      <span class="comment"># -5到-1位置应该是从右往左，步长应该写为正数，或者将开始结束下标改变</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="16-对字符串的查找-amp-修改操作"><a href="#16-对字符串的查找-amp-修改操作" class="headerlink" title="16 对字符串的查找&amp;修改操作"></a>16 对字符串的查找&amp;修改操作</h2><h3 id="16-1-查找"><a href="#16-1-查找" class="headerlink" title="16.1 查找"></a>16.1 查找</h3><p>1 find()： 检测某个子串是否包含在这个字符串中，如果在,返回这个子串开始的位置下标，否则则返<br>回**-1**。</p>
+<p>语法：字符串序列.find(子串, 开始位置下标, 结束位置下标)  //开始和结束为止下标可以不写，默认从0为止开始查找</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mystr = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line"></span><br><span class="line">print(mystr.find(<span class="string">&quot;and&quot;</span>)) <span class="comment">#12</span></span><br><span class="line">print(mystr.find(<span class="string">&quot;and&quot;</span>,<span class="number">15</span>,<span class="number">30</span>)) <span class="comment">#23</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2 index()：检测某个子串是否包含在这个字符串中，如果在,返回这个子串开始的位置下标，否则则<br><strong>报异常</strong>。</p>
+<p>字符串序列.index(子串, 开始位置下标, 结束位置下标) </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mystr = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line">print(mystr.index(<span class="string">&#x27;and&#x27;</span>)) <span class="comment"># 12</span></span><br><span class="line">print(mystr.index(<span class="string">&#x27;and&#x27;</span>, <span class="number">15</span>, <span class="number">30</span>)) <span class="comment"># 23</span></span><br><span class="line">print(mystr.index(<span class="string">&#x27;ands&#x27;</span>)) <span class="comment"># 报错</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>3 count()：返回统计某个子串在字符串中出现的次数</p>
+<ul>
+<li>rfind()： 和find()功能相同，但查找方向为右侧开始。</li>
+<li>rindex()：和index()功能相同，但查找方向为右侧开始。</li>
+<li>count()：返回某个子串在字符串中出现的次数</li>
+</ul>
+<h3 id="16-2-修改"><a href="#16-2-修改" class="headerlink" title="16.2 修改"></a>16.2 修改</h3><p>replace()：替换</p>
+<p>语法：字符串序列.replace(旧子串, 新子串, 替换次数) </p>
+<p>这里需要注意下，字符串为不可变类型，使用replace()方法后必须用一个新的变量来接收</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mystr = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line"><span class="comment"># 结果：hello world he itcast he itheima he Python</span></span><br><span class="line">print(mystr.replace(<span class="string">&#x27;and&#x27;</span>, <span class="string">&#x27;he&#x27;</span>))</span><br><span class="line"><span class="comment"># 结果：hello world he itcast he itheima he Python</span></span><br><span class="line">print(mystr.replace(<span class="string">&#x27;and&#x27;</span>, <span class="string">&#x27;he&#x27;</span>, <span class="number">10</span>))</span><br><span class="line"><span class="comment"># 结果：hello world and itcast and itheima and Python</span></span><br><span class="line">print(mystr)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>split()：按照指定字符分割字符串。</p>
+<p>语法：字符串序列.split(分割字符, num) </p>
+<p>注意：num表示的是分割字符出现的次数，即将来返回数据个数为num+1个。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mystr = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line"><span class="comment"># 结果：[&#x27;hello world &#x27;, &#x27; itcast &#x27;, &#x27; itheima &#x27;, &#x27; Python&#x27;]</span></span><br><span class="line">print(mystr.split(<span class="string">&#x27;and&#x27;</span>))</span><br><span class="line"><span class="comment"># 结果：[&#x27;hello world &#x27;, &#x27; itcast &#x27;, &#x27; itheima and Python&#x27;]</span></span><br><span class="line">print(mystr.split(<span class="string">&#x27;and&#x27;</span>, <span class="number">2</span>))</span><br><span class="line"><span class="comment"># 结果：[&#x27;hello&#x27;, &#x27;world&#x27;, &#x27;and&#x27;, &#x27;itcast&#x27;, &#x27;and&#x27;, &#x27;itheima&#x27;, &#x27;and&#x27;, &#x27;Python&#x27;]</span></span><br><span class="line">print(mystr.split(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line"><span class="comment"># 结果：[&#x27;hello&#x27;, &#x27;world&#x27;, &#x27;and itcast and itheima and Python&#x27;]</span></span><br><span class="line">print(mystr.split(<span class="string">&#x27; &#x27;</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>join()：用⼀个字符或子串合并字符串，即是将多个字符串合并为一个新的字符串。</p>
+<p>语法:字符或子串.join(多字符串组成的序列) </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;chuan&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;bo&#x27;</span>, <span class="string">&#x27;ke&#x27;</span>]</span><br><span class="line">t1 = (<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;cc&#x27;</span>, <span class="string">&#x27;ddd&#x27;</span>)</span><br><span class="line"><span class="comment"># 结果：chuan_zhi_bo_ke</span></span><br><span class="line">print(<span class="string">&#x27;_&#x27;</span>.join(list1))</span><br><span class="line"><span class="comment"># 结果：aa...b...cc...ddd</span></span><br><span class="line">print(<span class="string">&#x27;...&#x27;</span>.join(t1))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>join()：用⼀个字符或子串合并字符串，即是将多个字符串合并为⼀个新的字符串。</p>
+<p>语法:字符或子串.join(多字符串组成的序列) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 注意使用join()时，列表或者元祖里面只能是字符串</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;chuan&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;bo&#x27;</span>, <span class="string">&#x27;ke&#x27;</span>] <span class="comment">#列表或者元祖里面只能是字符串</span></span><br><span class="line">t1 = (<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;cc&#x27;</span>, <span class="string">&#x27;ddd&#x27;</span>)</span><br><span class="line"><span class="comment"># 结果：chuan_zhi_bo_ke</span></span><br><span class="line">print(<span class="string">&#x27;_&#x27;</span>.join(list1))</span><br><span class="line"><span class="comment"># 结果：aa...b...cc...ddd</span></span><br><span class="line">print(<span class="string">&#x27;...&#x27;</span>.join(t1))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>其余对字符串的操作</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">mystr = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line"><span class="comment"># 只有首字母大写</span></span><br><span class="line">print(mystr.capitalize())</span><br><span class="line"><span class="comment"># 每个单词首字母大写</span></span><br><span class="line">print(mystr.title())</span><br><span class="line"><span class="comment"># 全部字母转大写</span></span><br><span class="line">print(mystr.upper())</span><br><span class="line"><span class="comment"># 全部字母转小写</span></span><br><span class="line">print(mystr.lower())</span><br><span class="line">print(<span class="string">&quot;1-----------------------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line">mystr2 = <span class="string">&quot;    hello world and itcast and itheima and Python    &quot;</span></span><br><span class="line"><span class="comment"># 删除字符串左边空白</span></span><br><span class="line">print(mystr2.lstrip())</span><br><span class="line"><span class="comment"># 删除字符串右边空白</span></span><br><span class="line">print(mystr2.rstrip())</span><br><span class="line"><span class="comment"># 删除字符串两边空白</span></span><br><span class="line">print(mystr2.rstrip())</span><br><span class="line">print(<span class="string">&quot;2-----------------------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line">mystr3 = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="comment"># 返回⼀个原字符串左对⻬,并使用指定字符(默认空格)填充⾄对应⻓度的新字符串。</span></span><br><span class="line">print(mystr3.ljust(<span class="number">10</span>,<span class="string">&quot;.&quot;</span>))</span><br><span class="line"><span class="comment"># 返回⼀个原字符串右对⻬,并使用指定字符(默认空格)填充⾄对应⻓度的新字符串。</span></span><br><span class="line">print(mystr3.rjust(<span class="number">10</span>,<span class="string">&quot;.&quot;</span>))</span><br><span class="line"><span class="comment"># 返回⼀个原字符串居中对⻬,并使用指定字符(默认空格)填充⾄对应⻓度的新字符串。</span></span><br><span class="line">print(mystr3.center(<span class="number">10</span>,<span class="string">&quot;.&quot;</span>))</span><br><span class="line">print(<span class="string">&quot;3-----------------------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line">mystr4 = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line"><span class="comment"># 检查字符串是否是以指定⼦串开头，是则返回 True，否则返回 False。如果设置了开始和结束位置下标，则在指定范围内检查。</span></span><br><span class="line">print(mystr4.startswith(<span class="string">&quot;world&quot;</span>,<span class="number">6</span>,<span class="number">15</span>))</span><br><span class="line"><span class="comment"># 检查字符串是否是以指定⼦串结尾，是则返回 True，否则返回 False。</span></span><br><span class="line">print(mystr4.endswith(<span class="string">&quot;Python&quot;</span>))</span><br><span class="line">print(<span class="string">&quot;4-----------------------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line">mystr5 = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line"><span class="comment"># 全是字母返回true,否则false</span></span><br><span class="line">print(mystr5.isalpha())</span><br><span class="line"><span class="comment"># 全是字母返回数字,否则false</span></span><br><span class="line">print(mystr5.isdigit())</span><br><span class="line"><span class="comment"># 字母或数字或组合返回true,否则false</span></span><br><span class="line">print(mystr5.isalnum())</span><br><span class="line"><span class="comment"># 全是空白返回true,否则false</span></span><br><span class="line">print(mystr5.isspace())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>运行结果</strong></p>
+<p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201006213025997.png" alt="image-20201006213025997"></p>
+<h2 id="17-列表"><a href="#17-列表" class="headerlink" title="17 列表"></a>17 列表</h2><p>列表是一个可变类型</p>
+<p>所谓可变类型就是说我可以在列表自身基础之上修改，而不用重新赋值给一个新的变量接收。</p>
+<h3 id="17-1-列表的常用操作"><a href="#17-1-列表的常用操作" class="headerlink" title="17.1 列表的常用操作"></a>17.1 列表的常用操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;李四&quot;</span>, <span class="string">&quot;王五&quot;</span>]</span><br><span class="line"><span class="comment"># 打印索引下标为1的数据</span></span><br><span class="line">print(name_list[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回&quot;张三&quot;的索引下标</span></span><br><span class="line">print(name_list.index(<span class="string">&quot;张三&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计&quot;王五&quot;出现的次数</span></span><br><span class="line">print(name_list.count(<span class="string">&quot;王五&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表长度</span></span><br><span class="line">print(<span class="built_in">len</span>(name_list))</span><br><span class="line"></span><br><span class="line"><span class="comment"># &quot;张三&quot;在列表则返回true，否则false</span></span><br><span class="line">print(<span class="string">&quot;张三&quot;</span> <span class="keyword">in</span> name_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &quot;张三&quot;不在列表则返回true,否则false</span></span><br><span class="line">print(<span class="string">&quot;张三&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> name_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># reverse() 逆置</span></span><br><span class="line">lis1.reverse()</span><br><span class="line">print(lis1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># sort() 排序,默认升序</span></span><br><span class="line"><span class="comment"># lis1.sort()</span></span><br><span class="line">lis1.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">print(lis1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># copy() 列表复制</span></span><br><span class="line">list2 = lis1.copy()</span><br><span class="line">print(list2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="17-2-列表的增删改查操作"><a href="#17-2-列表的增删改查操作" class="headerlink" title="17.2 列表的增删改查操作"></a>17.2 列表的增删改查操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;李四&quot;</span>, <span class="string">&quot;王五&quot;</span>]</span><br><span class="line"><span class="comment"># 列表增加操作</span></span><br><span class="line"><span class="comment"># 注意：</span></span><br><span class="line"><span class="comment"># 1 如果列表用append()追加的是一个序列，则追加整个序列到列表最后。</span></span><br><span class="line"><span class="comment"># 2 如果用extend()追加，则是将这个序列的数据逐⼀添加到列表最后</span></span><br><span class="line"><span class="comment"># 3 列表追加元素可以是重复元素</span></span><br><span class="line">name_list.append(<span class="string">&quot;赵六&quot;</span>)</span><br><span class="line">name_list.append((<span class="number">11</span>,<span class="number">22</span>))</span><br><span class="line">name_list.extend(<span class="string">&quot;abcde&quot;</span>)</span><br><span class="line"><span class="comment"># 4 insert()指定位置增加元素</span></span><br><span class="line">name_list.insert(<span class="number">0</span>,<span class="string">&quot;指定位置增加元素&quot;</span>)</span><br><span class="line">print(name_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表删除操作</span></span><br><span class="line"><span class="comment"># 1 del()删除指定下标元素</span></span><br><span class="line"><span class="keyword">del</span>(name_list[<span class="number">0</span>])</span><br><span class="line">print(name_list)</span><br><span class="line"><span class="comment"># 2 pop()如果不指定下标，默认弹出最后一个元素,需要一个变量来接收</span></span><br><span class="line">pao_name=name_list.pop(<span class="number">1</span>)</span><br><span class="line">print(name_list)</span><br><span class="line"><span class="comment"># 3 remove(数据)</span></span><br><span class="line">name_list.remove(<span class="string">&quot;王五&quot;</span>)</span><br><span class="line"><span class="comment"># 4 clear() 清空列表</span></span><br><span class="line">name_list.clear()</span><br><span class="line">print(name_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表修改操作</span></span><br><span class="line">name_list[<span class="number">0</span>]=<span class="string">&quot;aaa&quot;</span></span><br><span class="line">print(name_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表查找操作</span></span><br><span class="line">print(name_list[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="17-3-随机分配老师到办公室问题"><a href="#17-3-随机分配老师到办公室问题" class="headerlink" title="17.3 随机分配老师到办公室问题"></a>17.3 随机分配老师到办公室问题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 问题描述：</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">8位老师分别叫&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;</span></span><br><span class="line"><span class="string">3个办公室</span></span><br><span class="line"><span class="string">将8位老师随机分配到3个办公室</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">teachers = [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>, <span class="string">&quot;D&quot;</span>, <span class="string">&quot;E&quot;</span>, <span class="string">&quot;F&quot;</span>, <span class="string">&quot;G&quot;</span>, <span class="string">&quot;H&quot;</span>]</span><br><span class="line">offices = [[], [], []]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> teachers:</span><br><span class="line">    num = random.randint(<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">    offices[num].append(name)</span><br><span class="line">print(offices)</span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> office <span class="keyword">in</span> offices:</span><br><span class="line">    print(<span class="string">f&quot;办公室<span class="subst">&#123;i&#125;</span>的老师有<span class="subst">&#123;<span class="built_in">len</span>(office)&#125;</span>位&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> tec <span class="keyword">in</span> office:</span><br><span class="line">        print(tec)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="18-元祖"><a href="#18-元祖" class="headerlink" title="18 元祖"></a>18 元祖</h2><p><strong>元祖内的数据是不能修改的，也不能删除某个数据，除非是要删除整个元祖</strong></p>
+<p><strong>！！！但是：如果元祖里面有列表，那么列表里的数据是可以修改的，尽管如此，但是不建议去做</strong></p>
+<p>这里需要说明下：元祖和列表一样其实是可以存储不同类型的数据的，但是建议使用同一种类型数据</p>
+<h3 id="18-1-定义元祖"><a href="#18-1-定义元祖" class="headerlink" title="18.1 定义元祖"></a>18.1 定义元祖</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意：元祖只有一个数据时也必须加，否则就不是元祖类型了</span></span><br><span class="line">t2 = (<span class="number">1</span>,)</span><br><span class="line">print(<span class="built_in">type</span>(t2))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="18-2-元祖的常见操作（主要是查找操作）"><a href="#18-2-元祖的常见操作（主要是查找操作）" class="headerlink" title="18.2 元祖的常见操作（主要是查找操作）"></a>18.2 元祖的常见操作（主要是查找操作）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">t3 = (<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>)</span><br><span class="line"><span class="comment"># 查找</span></span><br><span class="line">print(t3[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># index()：查找某个数据，如果数据存在返回对应的下标，否则报错，语法和列表、字符串的index()相同</span></span><br><span class="line">print(t3.index(<span class="string">&quot;a&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计某个元素的个数</span></span><br><span class="line">print(t3.count(<span class="string">&quot;a&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="19-字典"><a href="#19-字典" class="headerlink" title="19 字典"></a>19 字典</h2><p>字典里的数据必须是键值对的形式，可以看成map集合</p>
+<p>符号是大括号{}</p>
+<h3 id="19-1-字典的增删改查操作"><a href="#19-1-字典的增删改查操作" class="headerlink" title="19.1 字典的增删改查操作"></a>19.1 字典的增删改查操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;张三&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">18</span>, <span class="string">&quot;address&quot;</span>: <span class="string">&quot;徐州&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># key在字典中不存在就是新增，如果存在就是修改</span></span><br><span class="line">dict1[<span class="string">&quot;id&quot;</span>]=<span class="number">1</span></span><br><span class="line">print(dict1)</span><br><span class="line">dict1[<span class="string">&quot;age&quot;</span>]=<span class="number">19</span></span><br><span class="line">print(dict1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除或者清空字典或者删除指定键值对</span></span><br><span class="line"><span class="comment"># del dict1</span></span><br><span class="line"><span class="comment"># dict1.clear()</span></span><br><span class="line"><span class="keyword">del</span> dict1[<span class="string">&quot;name&quot;</span>]</span><br><span class="line">print(dict1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典数据的查找(和map一样，keys集合，values集合，entry集合这样)</span></span><br><span class="line">keys = dict1.keys()</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> keys:</span><br><span class="line">    print(dict1[key])</span><br><span class="line">values = dict1.values()</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> values:</span><br><span class="line">    print(value)</span><br><span class="line">items = dict1.items()</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">    print(item)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 拆包动作</span></span><br><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> dict1.items():</span><br><span class="line">    print(<span class="string">f&quot;<span class="subst">&#123;key&#125;</span>=<span class="subst">&#123;value&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="20-集合"><a href="#20-集合" class="headerlink" title="20  集合"></a>20  集合</h2><p>集合里的数据 没有重复的（参照set集合）它会去重。</p>
+<p>集合没有顺序，所以不支持下标的操作</p>
+<h3 id="20-1-集合增删查操作"><a href="#20-1-集合增删查操作" class="headerlink" title="20.1 集合增删查操作"></a>20.1 集合增删查操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#123;<span class="number">12</span>, <span class="number">22</span>, <span class="number">322</span>, <span class="number">42</span>, <span class="number">5</span>&#125;</span><br><span class="line">print(s1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合增加数据</span></span><br><span class="line"><span class="comment"># add追加一个元素</span></span><br><span class="line">s1.add(<span class="number">100</span>)</span><br><span class="line"><span class="comment"># update只能追加序列</span></span><br><span class="line">s1.update([<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>])</span><br><span class="line">print(s1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合删除操作</span></span><br><span class="line"><span class="comment"># 删除指定数据，不存在则报错</span></span><br><span class="line">s1.remove(<span class="number">12</span>)</span><br><span class="line"><span class="comment"># 删除指定数据，不存在也不会报错</span></span><br><span class="line">s1.discard(<span class="number">12</span>)</span><br><span class="line"><span class="comment"># 随机删除一个数据</span></span><br><span class="line">s1.pop()</span><br><span class="line">print(s1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合查找操作</span></span><br><span class="line">print(<span class="number">10</span> <span class="keyword">in</span> s1)</span><br><span class="line">print(<span class="number">12</span> <span class="keyword">not</span> <span class="keyword">in</span> s1)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="20-2-注意："><a href="#20-2-注意：" class="headerlink" title="20.2 注意："></a>20.2 注意：</h3><p>创建集合可以使用{}或者set()，<strong>但是</strong>如果只创建空集合则<strong>只能</strong>使用set()，因为{}会创建空字典</p>
+<h2 id="21-公共操作"><a href="#21-公共操作" class="headerlink" title="21 公共操作"></a>21 公共操作</h2><p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201013175512057.png" alt="image-20201013175512057"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;_&quot;</span>*<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201013180552798.png" alt="image-20201013180552798"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 公共操作</span></span><br><span class="line"><span class="comment"># rnage(),注意：rnage()是左闭右开的，所以不包含结束数字</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>,<span class="number">1</span>):</span><br><span class="line">    print(i,end=<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="22-函数"><a href="#22-函数" class="headerlink" title="22 函数"></a>22 函数</h2><p>函数都是先定义再调用</p>
+<p>定义格式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> 函数名():</span></span><br><span class="line">    代码<span class="number">1</span></span><br><span class="line">    代码<span class="number">2</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<h3 id="22-1-一些关键函数"><a href="#22-1-一些关键函数" class="headerlink" title="22.1 一些关键函数"></a>22.1 一些关键函数</h3><ul>
+<li>help()函数，查看函数说明文档</li>
+<li>未完</li>
+</ul>
+<h3 id="22-2-说明文档"><a href="#22-2-说明文档" class="headerlink" title="22.2 说明文档"></a>22.2 说明文档</h3><p>类似如下代码所示，可以输入多行注释（””” “””），按下回车后会给出说明文档格式的参数注释（比如参数和返回值）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_num</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param a:参数1</span></span><br><span class="line"><span class="string">    :param b:参数2</span></span><br><span class="line"><span class="string">    :return:返回值</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="22-3-函数执行的一些细节（重要）"><a href="#22-3-函数执行的一些细节（重要）" class="headerlink" title="22.3 函数执行的一些细节（重要）"></a>22.3 函数执行的一些细节（重要）</h3><ul>
+<li>global可以用来声明一个变量为全局变量，一般都是用来提升作用域之类的，稍微注意下这个声明即可</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testA</span>():</span></span><br><span class="line">    <span class="keyword">global</span> b <span class="comment"># 这里声明b为全局变量（注意上面并未提前声明）</span></span><br><span class="line">    b=<span class="number">300</span></span><br><span class="line">    print(a)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testB</span>():</span></span><br><span class="line">    <span class="keyword">global</span> a</span><br><span class="line">    a = <span class="number">200</span></span><br><span class="line">    print(a)</span><br><span class="line"></span><br><span class="line">testA()</span><br><span class="line">testB()</span><br><span class="line">print(a) <span class="comment"># 此时这里打印a可以看到已经变成了200</span></span><br><span class="line">print(b) <span class="comment"># 注意看下这里，因为b被声明为了全局变量，所以此处可以打印到b的值</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>函数返回多个返回值格式：</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 函数返回多个返回值格式：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">return_num</span>():</span></span><br><span class="line">    <span class="comment"># return 1, 2 #默认是元祖类型</span></span><br><span class="line">    <span class="comment"># return [1,2,3,4,5]</span></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line">result = return_num()</span><br><span class="line">print(<span class="built_in">type</span>(result))</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>关键字参数顺序问题</strong></li>
+</ul>
+<p>如果没有关键参数，则参数值和定义的参数必须一一对应（参数位置也必须一样）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># def info(关键字参数1=位置参数1,关键字参数2=位置参数2,...),关键字参数在前，位置参数在后</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_info</span>(<span class="params">name, gender, age</span>):</span> </span><br><span class="line">    print(<span class="string">f&quot;<span class="subst">&#123;name&#125;</span>的性别是<span class="subst">&#123;gender&#125;</span>,年龄为<span class="subst">&#123;age&#125;</span>岁&quot;</span>)</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">user_info(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;男&quot;</span>, <span class="number">18</span>) <span class="comment">#顺序必须一样</span></span><br><span class="line"></span><br><span class="line">user_info(age=<span class="number">11</span>,name=<span class="string">&quot;李四&quot;</span>,gender=<span class="string">&quot;女&quot;</span>) <span class="comment">#顺序可以不一样（比如这个age就是关键字参数，11就是位置参数）</span></span><br><span class="line"></span><br><span class="line">user_info(<span class="string">&quot;李四&quot;</span>,gender=<span class="string">&quot;男&quot;</span>,age=<span class="number">18</span>) <span class="comment">#像这种关键参数和位置参数混合书写的，首先位置参数必须在关键字参数前面，并且位置参数（李四）的顺序必须一样，但是关键字参数之间却不存在先后顺序</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意！！！</strong></p>
+<p>如果是混合书写，也就是既有关键字参数和位置参数的，也有只是位置参数的，<strong>则位置参数必须在关键字参数前面（并且位置参数必须顺序对应），但是关键字参数之间却不存在先后顺序</strong></p>
+<ul>
+<li><strong>缺省参数</strong></li>
+</ul>
+<p>缺省参数又叫默认参数，注意，调用函数时可不传该默认参数的值（注意：所有位置参数必须出现在默认参数前，包括函数定义和调用）。</p>
+<p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201023201822521.png" alt="image-20201023201822521"></p>
+<ul>
+<li><strong>可变参数</strong></li>
+</ul>
+<p>1.包裹位置传递</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_info</span>(<span class="params">*args</span>):</span></span><br><span class="line">    print(args)</span><br><span class="line"></span><br><span class="line">user_info(<span class="string">&quot;张三&quot;</span>) <span class="comment">#它会根据传进参数的位置合并为⼀个元组(tuple)，args是元组类型，这就是包裹位置传递。</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：它会根据传进参数的位置合并为⼀个**元组(tuple)**，args是元组类型，这就是包裹位置传递。</p>
+<p>2.包裹关键字传递</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 收集所有关键字参数，返回的是一个字典</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_info2</span>(<span class="params">**kwargs</span>):</span></span><br><span class="line">    print(kwargs)</span><br><span class="line"></span><br><span class="line">user_info2(name=<span class="string">&quot;张三&quot;</span>, age=<span class="number">18</span>, gender=<span class="string">&quot;男&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意：它会收集所有关键字参数，返回的是一个<strong>字典</strong>，kwargs是<strong>字典类型</strong>，这就是包裹关键字传递。</p>
+<p>上面的这两种情况又叫做组包过程（就是把零散的数据整合到一起）</p>
+<ul>
+<li><strong>拆包</strong></li>
+</ul>
+<p>1.拆包元祖</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拆包元祖</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_info</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>, <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num1, num2 = user_info()</span><br><span class="line">print(<span class="string">f&quot;<span class="subst">&#123;num1&#125;</span>,<span class="subst">&#123;num2&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.拆包字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拆包字典</span></span><br><span class="line">userInfo = &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;TOM&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="string">&quot;18&quot;</span>&#125;</span><br><span class="line">name, age = userInfo</span><br><span class="line">print(<span class="string">f&quot;<span class="subst">&#123;name&#125;</span>,<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;<span class="subst">&#123;userInfo[name], userInfo[age]&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>Python的交换变量方式</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">a, b = b, a</span><br><span class="line">print(<span class="string">f&quot;<span class="subst">&#123;a&#125;</span>,<span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="22-4-可变和不可变类型"><a href="#22-4-可变和不可变类型" class="headerlink" title="22.4 可变和不可变类型"></a>22.4 可变和不可变类型</h3><p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201127123549785.png" alt="image-20201127123549785"></p>
+<h2 id="23-学生管理系统（综合上面所学知识）"><a href="#23-学生管理系统（综合上面所学知识）" class="headerlink" title="23 学生管理系统（综合上面所学知识）"></a>23 学生管理系统（综合上面所学知识）</h2><p>这个看下代码就行了</p>
+<p>一些注意点：</p>
+<ol>
+<li><p>像这种for后接else的语法</p>
+<p>总结起来比较简单，如果for循环<strong>正常结束</strong>，else中语句执行。如果是break的，则不执行。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> info:</span><br><span class="line">    <span class="keyword">if</span> user_name == i[<span class="string">&quot;name&quot;</span>]:</span><br><span class="line">        i[<span class="string">&quot;id&quot;</span>] = <span class="built_in">input</span>(<span class="string">&quot;请输入修改的学号&quot;</span>)</span><br><span class="line">        i[<span class="string">&quot;tel&quot;</span>] = <span class="built_in">input</span>(<span class="string">&quot;请输入要修改的手机号&quot;</span>)</span><br><span class="line">        print(<span class="string">&quot;修改成功&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&quot;该学员不存在&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="24-lambda"><a href="#24-lambda" class="headerlink" title="24 lambda"></a>24 lambda</h2><p>如果一个函数有一个返回值，并且只有一句代码，可以使用 lambda简化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：lambda 参数列表 ： 表达式 </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="24-1-示例（计算a-b）"><a href="#24-1-示例（计算a-b）" class="headerlink" title="24.1 示例（计算a + b）"></a>24.1 示例（计算a + b）</h3><p>求和示例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">l1</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">print(l1(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式：lambda 参数列表 ： 表达式</span></span><br><span class="line">l2 = <span class="keyword">lambda</span> a, b: a + b</span><br><span class="line">print(l2(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>注意：</p>
+<ul>
+<li>上面打印的时候是   l2(x,x),  如果使用直接打印l2，那么打印的是地址。</li>
+</ul>
+<h3 id="24-2-lambda的参数形式"><a href="#24-2-lambda的参数形式" class="headerlink" title="24.2 lambda的参数形式"></a>24.2 lambda的参数形式</h3><p>这里注意下对于<strong>默认参数</strong>，如果传了参数，那么就会覆盖掉默认参数，见下面代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lambda参数</span></span><br><span class="line">l1 = <span class="keyword">lambda</span>: <span class="number">100</span></span><br><span class="line">print(l1())</span><br><span class="line"></span><br><span class="line"><span class="comment"># lambda 一个参数</span></span><br><span class="line">l2=<span class="keyword">lambda</span> a:a*<span class="number">10</span></span><br><span class="line">print(l2(<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># lambda 默认参数(缺省参数)</span></span><br><span class="line">l3 = <span class="keyword">lambda</span> a, b, c=<span class="number">100</span>: a + b + c</span><br><span class="line">print(l3(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line">print(l3(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) <span class="comment">#这里需要说明下如果传了参数，那么就会覆盖掉默认参数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># lambda  可变参数(*args)</span></span><br><span class="line">l4 = <span class="keyword">lambda</span> *args: args</span><br><span class="line">print(l4(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># lambda  可变参数(**kwargs)</span></span><br><span class="line">l5 = <span class="keyword">lambda</span> **kwargs: kwargs</span><br><span class="line">print(l5(name=<span class="string">&quot;张三&quot;</span>,age=<span class="number">18</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="24-3-lambda应用—列表数据按字典key的值排序"><a href="#24-3-lambda应用—列表数据按字典key的值排序" class="headerlink" title="24.3 lambda应用—列表数据按字典key的值排序"></a>24.3 lambda应用—列表数据按字典key的值排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">students=[</span><br><span class="line">    &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;wangwu&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">17</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;lisi&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">16</span>&#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment"># 按照name升序排序</span></span><br><span class="line">students.sort(key=<span class="keyword">lambda</span> x:x[<span class="string">&quot;name&quot;</span>])</span><br><span class="line">print(students)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按照age降序排序</span></span><br><span class="line">students.sort(key=<span class="keyword">lambda</span> x:x[<span class="string">&quot;age&quot;</span>],reverse=<span class="literal">True</span>)</span><br><span class="line">print(students)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="24-4-高阶函数"><a href="#24-4-高阶函数" class="headerlink" title="24.4 高阶函数"></a>24.4 高阶函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_num</span>(<span class="params">a, b, f</span>):</span></span><br><span class="line">    <span class="keyword">return</span> f(a) + f(b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 绝对值求求和</span></span><br><span class="line">num = sum_num(-<span class="number">1</span>, <span class="number">2</span>, <span class="built_in">abs</span>)</span><br><span class="line">print(num)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 四舍五入</span></span><br><span class="line">num2 = sum_num(<span class="number">1.1</span>, <span class="number">2</span>, <span class="built_in">round</span>)</span><br><span class="line">print(num2)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="24-5-内置高阶函数"><a href="#24-5-内置高阶函数" class="headerlink" title="24.5 内置高阶函数"></a>24.5 内置高阶函数</h3><p><strong>简单说就是把函数功能作用于列表序列</strong></p>
+<p>下面是三个常见的内置高阶函数</p>
+<h4 id="24-5-1-map"><a href="#24-5-1-map" class="headerlink" title="24.5.1 map()"></a>24.5.1 map()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">lis1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun1</span>(<span class="params">x</span>):</span></span><br><span class="line">	<span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">iterator = <span class="built_in">map</span>(fun1, lis1)</span><br><span class="line">print(<span class="built_in">list</span>(iterator))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="24-5-2-reduce"><a href="#24-5-2-reduce" class="headerlink" title="24.5.2 reduce()"></a>24.5.2 reduce()</h4><p>这里需要注意下：</p>
+<p>reduce(func(x,y)，lst)          其中func必须有两个参数，每次func计算的结果继续和序列的下一个元素做累<br>积计算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line">lis1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">fun2</span>(<span class="params">a,b</span>):</span></span><br><span class="line">     <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line"><span class="comment">#求和</span></span><br><span class="line"> reduce = functools.reduce(fun2, lis1)</span><br><span class="line"> print(reduce)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="24-5-3-filter"><a href="#24-5-3-filter" class="headerlink" title="24.5.3 filter()"></a>24.5.3 filter()</h4><p>从函数名就知道干什么的了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">lis1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun3</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x%<span class="number">2</span>==<span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">filt = <span class="built_in">filter</span>(fun3, lis1)</span><br><span class="line">print(<span class="built_in">list</span>(filt))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="25-文件操作"><a href="#25-文件操作" class="headerlink" title="25 文件操作"></a>25 文件操作</h2><p>步骤：</p>
+<ul>
+<li>打开文件</li>
+<li>读写等操作</li>
+<li>关闭文件</li>
+</ul>
+<h3 id="25-1-打开文件模式"><a href="#25-1-打开文件模式" class="headerlink" title="25.1 打开文件模式"></a>25.1 打开文件模式</h3><p><img src="C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20201201122413664.png" alt="image-20201201122413664"></p>
+<p>圈中的几个都可以用于读写，区别看下<strong>文件指针</strong>的位置移动情况</p>
+<h3 id="25-2-文件对象方法"><a href="#25-2-文件对象方法" class="headerlink" title="25.2 文件对象方法"></a>25.2 文件对象方法</h3><ul>
+<li>write()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象对象.write(&#39;内容&#39;) </span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：</p>
+<ol>
+<li><p>w 和 a 模式：如果文件不存在则创建该文件；如果文件存在， w 模式先清空再写入， a 模式<br>直接末尾追加。</p>
+</li>
+<li><p> r 模式：如果文件不存在则报错。</p>
+</li>
+</ol>
+<ul>
+<li>read()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件对象.read(num) </span><br></pre></td></tr></table></figure>
+
+<p>num表示要从文件中读取的数据的长度（单位是字节），如果没有传入num，那么就表示读取文<br>件中<strong>所有</strong>的数据。</p>
+<ul>
+<li>readlines()</li>
+</ul>
+<p>按照行的方式把整个文件中的内容进行一次性读取，并且返回的是一个列表</p>
+<ul>
+<li>readline()</li>
+</ul>
+<p>一次读取一行</p>
+<ul>
+<li><strong>seek()</strong></li>
+</ul>
+<p>用来移动文件指针</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件对象.seek(偏移量, 起始位置)</span><br></pre></td></tr></table></figure>
+
+<p>起始位置：</p>
+<p>​    0：文件开头</p>
+<p>​    1：当前位置</p>
+<p>​    2：文件结尾</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;2.txt&quot;</span>, <span class="string">&quot;a+&quot;</span>)  <span class="comment">#2.txt中数据为aaaaabbbbbccccc</span></span><br><span class="line">f.seek(<span class="number">3</span>,<span class="number">0</span>)              <span class="comment">#从0（开头开始，向右偏移三个单位）</span></span><br><span class="line">print(f.read())          <span class="comment">#a+模式，所以可以读写</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong>：</p>
+<p>如果seek（x，y）中x,y均为0 ，那么可以省略写成一个0</p>
+<p><strong>其余的一些方法看下下面总结的代码就行了</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># os.rename(&quot;4.txt&quot;,&quot;b.txt&quot;)  将4.txt改名为b.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># os.remove(&quot;b.txt&quot;)          删除b.txt文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(os.getcwd())          打印当前文件路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># os.mkdir(&quot;aaa&quot;)             创建文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># os.rmdir(&quot;aaa&quot;)              删除文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># os.chdir(&quot;aaa&quot;)             chdir(&quot;xxx&quot;)  改变目录路径</span></span><br><span class="line"><span class="comment"># f = open(&quot;bbb.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;)  写入中文，避免乱码</span></span><br><span class="line"><span class="comment"># f.write(&quot;你好&quot;)</span></span><br><span class="line"><span class="comment"># f.close()</span></span><br><span class="line"></span><br><span class="line">print(os.listdir(<span class="string">&quot;../day01&quot;</span>))   <span class="comment">#获取某个文件夹下的所有文件，返回一个列表</span></span><br><span class="line">                                <span class="comment"># (稍微注意下这里涉及到相对和绝对路径的一些注意事项 )</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="25-3-总结案例（批量重命名添加-删除）"><a href="#25-3-总结案例（批量重命名添加-删除）" class="headerlink" title="25.3 总结案例（批量重命名添加/删除）"></a>25.3 总结案例（批量重命名添加/删除）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">批量重命名添加/删除   字符串</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.chdir(<span class="string">&quot;aaa&quot;</span>)  <span class="comment"># 进入aaa文件夹</span></span><br><span class="line"><span class="comment"># print(os.listdir())</span></span><br><span class="line">flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> os.listdir():</span><br><span class="line">    <span class="keyword">if</span> flag == <span class="number">1</span>:</span><br><span class="line">        newName = <span class="string">&quot;python_&quot;</span> + i</span><br><span class="line">    <span class="keyword">elif</span> flag == <span class="number">2</span>:</span><br><span class="line">        num = <span class="built_in">len</span>(<span class="string">&quot;python_&quot;</span>)</span><br><span class="line">        newName = i[num:]</span><br><span class="line">    os.rename(i, newName)</span><br><span class="line">print(os.listdir())</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="26-面向对象"><a href="#26-面向对象" class="headerlink" title="26 面向对象"></a>26 面向对象</h2><h3 id="26-1-几种魔法方法"><a href="#26-1-几种魔法方法" class="headerlink" title="26.1 几种魔法方法"></a>26.1 几种魔法方法</h3><p>类比Java里的几种方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Washer</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, width, height</span>):</span>  <span class="comment"># 这样写就类似于Java的构造方法一样</span></span><br><span class="line">        self.width = width</span><br><span class="line">        self.height = height</span><br><span class="line">        print(<span class="string">&quot;你好&quot;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;打印对象不再输出地址值，而是此处_str_()魔法方法的返回值&quot;</span> <span class="comment">#--相当于tostring()</span></span><br><span class="line">    <span class="comment"># def __del__(self):</span></span><br><span class="line">    <span class="comment">#     print(f&quot;&#123;self&#125;对象被删除时自动调用&quot;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_info</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">f&quot;宽度为<span class="subst">&#123;self.width&#125;</span>，高度为<span class="subst">&#123;self.height&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">w1 = Washer(<span class="number">100</span>, <span class="number">300</span>)</span><br><span class="line">print(w1) <span class="comment">#测试__str__(self)魔法方法</span></span><br><span class="line"><span class="comment"># del w1    #测试__del__(self)魔法方法   删除时自动调用</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>小示例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 烤地瓜</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SweetPotato</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.cook_time = <span class="number">0</span></span><br><span class="line">        self.cook_static = <span class="string">&quot;生的&quot;</span></span><br><span class="line">        self.condiments = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cook</span>(<span class="params">self, time</span>):</span></span><br><span class="line">        self.cook_time += time</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= self.cook_time &lt; <span class="number">3</span>:</span><br><span class="line">            self.cook_static = <span class="string">&quot;生的&quot;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="number">3</span> &lt;= self.cook_time &lt; <span class="number">5</span>:</span><br><span class="line">            self.cook_static = <span class="string">&quot;半生不熟&quot;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="number">5</span> &lt;= self.cook_time &lt; <span class="number">8</span>:</span><br><span class="line">            self.cook_static = <span class="string">&quot;熟了&quot;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="number">8</span> &lt;= self.cook_time &lt; <span class="number">10</span>:</span><br><span class="line">            self.cook_static = <span class="string">&quot;烤糊了&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_condiments</span>(<span class="params">self,condiments</span>):</span></span><br><span class="line">        self.condiments.append(condiments)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;这个地瓜烤了<span class="subst">&#123;self.cook_time&#125;</span>小时了，状态为<span class="subst">&#123;self.cook_static&#125;</span>,加了调料<span class="subst">&#123;self.condiments&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sp = SweetPotato()</span><br><span class="line">sp.cook(<span class="number">5</span>)</span><br><span class="line">sp.add_condiments(<span class="string">&quot;辣椒面&quot;</span>)</span><br><span class="line">print(sp)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="26-2-继承（留意下几个注意点）"><a href="#26-2-继承（留意下几个注意点）" class="headerlink" title="26.2  继承（留意下几个注意点）"></a>26.2  继承（留意下几个注意点）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.name = <span class="string">&quot;张三&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info_print</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.name = <span class="string">&quot;李四&quot;</span></span><br><span class="line">        self.age = <span class="string">&quot;11&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info_print2</span>(<span class="params">self, address</span>):</span></span><br><span class="line">        print(<span class="string">f&quot;<span class="subst">&#123;self.name&#125;</span>+<span class="subst">&#123;address&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：当一个类有多个⽗类的时候，默认使用第一个⽗类的同名属性和方法。</span></span><br><span class="line"><span class="comment"># 子类和父类具有同名属性和方法，默认使⽤用子类的同名属性和方法。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>(<span class="params">A, B</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c = C()</span><br><span class="line">c.info_print2(<span class="string">&quot;徐州&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>当一个类有多个父类的时候，默认使用第一个父类的同名属性和方法。</li>
+<li>子类和父类具有同名属性和方法，默认使用子类的同名属性和方法。</li>
+</ul>
 
       
 
@@ -267,7 +804,84 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/04/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/05/Python/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/">Vegeta的第一篇博客</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2020-12-04T15:29:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Vegeta"><a href="#Vegeta" class="headerlink" title="Vegeta"></a>Vegeta</h2><h3 id="hexo搭建"><a href="#hexo搭建" class="headerlink" title="hexo搭建"></a>hexo搭建</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器，或者直接nrm切换镜像源工具我感觉更好，nrm使用教程在最下面，建议nrm<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n “我的第一篇文章” #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件<br>-—<br>#配置_config.yml<br>-—-</p>
+<p>Deployment</p>
+<p>Docs: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">https://hexo.io/docs/deployment.html</a></p>
+<p>​    deploy:<br>          type: git<br>         repo: <a target="_blank" rel="noopener" href="https://github.com/YourGithubName/YourGithubName.github.io.git">https://github.com/YourGithubName/YourGithubName.github.io.git</a><br>          branch: master   #注意，这里要看你githhub默认分支是哪个<br>-—-<br>hexo d    #部署到Github仓库里<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
+<p> git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地，嫌慢直接根据上面地址下载解压到对应的themes/yilia路径下也行</p>
+<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
+<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo d    #部署到远程Github仓库<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客</p>
+<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>我们首先安装nrm，这里<code>-g</code>代表全局安装。可能需要一点儿时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nrm -g</span><br></pre></td></tr></table></figure>
+
+<p>![1529596099952](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596099952.png)</p>
+<p>然后通过<code>nrm ls</code>命令查看npm的仓库列表,带*的就是当前选中的镜像仓库：</p>
+<p>![1529596219439](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596219439.png)</p>
+<p>通过<code>nrm use taobao</code>来指定要使用的镜像源：</p>
+<p>![1529596312671](D:/2019_黑马/09 微服务电商【黑马乐优商城】/乐优商城-11月版/leyou/day05-vue入门/笔记/assets/1529596312671.png)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/04/hexo%E6%90%AD%E5%BB%BA/">展开全文 >></a>
         </p>
       
 
