@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2020/12/index.html">
+<meta property="og:url" content="http://example.com/archives/2021/01/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -354,214 +354,50 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/21/tf-gpu/" >
+        <a class="abstract-title" href = "/2021/01/28/base_env/" >
             
-                <span>tf-gpu</span>
+                <span>base_env</span>
         </a>
         <div class="abstract-content">
-            配置tensorflow环境先提前下载好Cudnn和CUDA并安装好。
-Win+R启动cmd，在命令提示符内输入以下命令：
+            1 conda常用命令
+列举当前所有环境
 
-conda create –n tensorflow-gpu python=3.6    （或者anconda手动创建个环境也一样）
+1conda env list                    &#x2F;&#x2F;显示所有的虚拟环境
 
-activate tensorflow-gpu 
 
-pip install tensorflow-gpu==1.13.2 -i https://mirrors.aliyun.com/pypi/simple/
 
-pip install keras==2.1.5 -i https://mirrors.aliyun.com/pypi/s...
+
+创建虚拟环境
+
+1conda create -n your_env_name python&#x3D;3.x #也可以在python后面直接输入想要安装的库，但是不建议，最好统一pip安装
+
+
+
+
+删除某个虚拟环境
+
+1conda remove -n xxxx --all   &#x2F;&#x2F;删除xxxx虚拟环境
+
+
+
+
+进入某个环境
+
+1activate your_env_name
+
+
+
+
+更新pip
+
+1pyth...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/21</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/28</span>
             </div>
             <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/06/IDEA_DeBug/" >
-            
-                <span>IDEA_Debug</span>
-        </a>
-        <div class="abstract-content">
-            01_Debug简介和意义
-什么是程序DeBug？
-
-Debug，是程序开发人员必会的一项调试程序的技能。
-
-企业中程序开发和程序调试的比例为1:1.5，可以说如果你不会调试程序，你就没有办法从事编程工作。
-
-
-
-
-
-Debug能帮助我们做什么？
-追踪代码的运行流程。
-程序运行异常定位。
-线上问题追踪。
-
-
-
-
-Debug对于程序学习者的意义
-
-通过调试能够更好的查看程序的执行流程。
-复杂的程序逻辑，通过老师的口述讲解，很难理解清楚，这个时候借助调试能够很好的帮助同学们理解程序。
-定位问题，提高自我解决问题的能力。
-
-
-
-02_IDEA中的Debug步骤
-设置断点（F9）
-
-调试程序（8...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/05/Welcome/" >
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>Welcome</span>
-        </a>
-        <div class="abstract-content">
-            
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/05</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/04/hexo%E6%90%AD%E5%BB%BA/" >
-            
-                <span>hexo搭建  --Vegeta</span>
-        </a>
-        <div class="abstract-content">
-            Vegetahexo搭建流程—    #安装Nodejsnode -v    #查看node版本npm -v    #查看npm版本npm install -g cnpm –registry=http://registry.npm.taobao.org    #安装淘宝的cnpm 管理器，或者直接nrm切换镜像源工具我感觉更好，nrm使用教程在最下面，建议nrmcnpm -v    #查看cnpm版本cnpm install -g hexo-cli    #安装hexo框架hexo -v    #查看hexo版本mkdir blog    #创建blog目录cd blog     #进入...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/04/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/" >
-            
-                <span>leyou</span>
-        </a>
-        <div class="abstract-content">
-            0 格式1 SpringCloud1.1 Zuul网关1234567891011121314151617server:  port: 10010spring:  application:    name: itcast-zuuleureka:  client:    service-url:      defaultZone: http://localhost:10086/eurekazuul:  routes: #这个路由可以配置多个，想暴露哪个接口直接再配置一个就可以了    itcast-provider1: /providerUser/**   #将符合path规则的一切请求，都...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/04/Python/" >
-            
-                <span>Python</span>
-        </a>
-        <div class="abstract-content">
-            0 格式格式要求如下：
-
-在索引和内容之间需要加一个空格，包括所有级索引、标题和内容
- 内容顶格书写
- 所有级标题之间需要添加一行空白行
-正文段落首行缩进，但是对于提出的问题不需要缩进
-
-–return;      ：结束当前方法，不在方法内无法使用
-break;        :  结束当前循环
-1 变量注意事项：
-
-  Python定义变量的时候只能包含字母、数字、下划线，并且不能以数字开头。
- 严格区分大小写，大小写s不一样，变量也不一样。
-
-2 格式化输出1234567891011# 小数点后保留两位有效数字print(&#x27;我的体重是%.2f公斤&#x27; % weig...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-</div>
             
         </div>
     </article>
