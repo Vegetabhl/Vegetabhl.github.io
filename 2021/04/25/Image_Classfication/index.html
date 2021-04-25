@@ -20,22 +20,33 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="配置tensorflow环境先提前下载好Cudnn和CUDA并安装好。 Win+R启动cmd，在命令提示符内输入以下命令：  conda create –n tensorflow-gpu python&#x3D;3.6    （或者anconda手动创建个环境也一样）  activate tensorflow-gpu   pip install tensorflow-gpu&#x3D;&#x3D;1.13.2 -i https">
+    <meta name="description" content="1 AlexNet2 VGG3 GooleNet4 RestNet5 MobileNet5.1 MobileNet V1    5.2 MobileNet V2    5.3 MobileNet V3  SE模块 ：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tf-gpu">
-<meta property="og:url" content="http://example.com/2020/12/21/tf-gpu/index.html">
+<meta property="og:title" content="Image_Classfication">
+<meta property="og:url" content="http://example.com/2021/04/25/Image_Classfication/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="配置tensorflow环境先提前下载好Cudnn和CUDA并安装好。 Win+R启动cmd，在命令提示符内输入以下命令：  conda create –n tensorflow-gpu python&#x3D;3.6    （或者anconda手动创建个环境也一样）  activate tensorflow-gpu   pip install tensorflow-gpu&#x3D;&#x3D;1.13.2 -i https">
+<meta property="og:description" content="1 AlexNet2 VGG3 GooleNet4 RestNet5 MobileNet5.1 MobileNet V1    5.2 MobileNet V2    5.3 MobileNet V3  SE模块 ：">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-21T08:49:38.158Z">
-<meta property="article:modified_time" content="2020-12-21T08:57:29.823Z">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/yGHa8ACMZVhJ2xn.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/V9anObAtLQ4lhsU.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/zmAwdDPi6nuYhGZ.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/g1Rawx3m48yXjdQ.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/bGuwxOJPI3qpKN9.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/aiMUoZCcSuHQlnR.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/sG3n6jDYAEB9hax.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/YOXkvGzIQ7jRm3b.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/DrTMbqkduZB83Xj.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/drKbAzp1g5qNJ6h.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/25/hLVgcxXSInWTjBl.png">
+<meta property="article:published_time" content="2021-04-25T06:40:04.949Z">
+<meta property="article:modified_time" content="2021-04-25T09:37:23.546Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/04/25/yGHa8ACMZVhJ2xn.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>tf-gpu · Vegeta&#39;s Studio</title>
+    <title>Image_Classfication · Vegeta&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -230,7 +241,7 @@
                 <a href="/" >Vegeta&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">tf-gpu</a>
+                <a href="#" class="post-name">Image_Classfication</a>
             </div>
     </div>
     
@@ -260,7 +271,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            tf-gpu
+            Image_Classfication
             <!-- 404 -->
             
         </h1>
@@ -277,20 +288,14 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-</div>
-                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">158</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">20</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/12/21</span>
+                    <span class="post-intro-time">2021/04/25</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -414,34 +419,27 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="配置tensorflow环境"><a href="#配置tensorflow环境" class="headerlink" title="配置tensorflow环境"></a>配置tensorflow环境</h1><p>先提前下载好Cudnn和CUDA并安装好。</p>
-<p>Win+R启动cmd，在命令提示符内输入以下命令：</p>
-<ul>
-<li><p>conda create –n tensorflow-gpu python=3.6    （或者anconda手动创建个环境也一样）</p>
-</li>
-<li><p>activate tensorflow-gpu </p>
-</li>
-<li><p>pip install tensorflow-gpu==1.13.2 -i <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple/</a></p>
-</li>
-<li><p>pip install keras==2.1.5 -i <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple/</a></p>
-</li>
-</ul>
-<p><strong>注意：</strong></p>
-<p>由于h5py库的更新，安装过程中会自动安装h5py=3.0.0以上的版本，会导致decode(“utf-8”)的错误！<br>各位一定要在安装完tensorflow后利用命令装h5py=2.10.0！</p>
-<ul>
-<li>pip install h5py==2.10.0 </li>
-</ul>
-<p><strong>参考来源</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44791964/article/details/104702142">https://blog.csdn.net/weixin_44791964/article/details/104702142</a></p>
+        <h2 id="1-AlexNet"><a href="#1-AlexNet" class="headerlink" title="1 AlexNet"></a>1 AlexNet</h2><h2 id="2-VGG"><a href="#2-VGG" class="headerlink" title="2 VGG"></a>2 VGG</h2><h2 id="3-GooleNet"><a href="#3-GooleNet" class="headerlink" title="3 GooleNet"></a>3 GooleNet</h2><h2 id="4-RestNet"><a href="#4-RestNet" class="headerlink" title="4 RestNet"></a>4 RestNet</h2><h2 id="5-MobileNet"><a href="#5-MobileNet" class="headerlink" title="5 MobileNet"></a>5 MobileNet</h2><h3 id="5-1-MobileNet-V1"><a href="#5-1-MobileNet-V1" class="headerlink" title="5.1 MobileNet V1"></a>5.1 MobileNet V1</h3><p><img src="https://i.loli.net/2021/04/25/yGHa8ACMZVhJ2xn.png"></p>
+<p><img src="https://i.loli.net/2021/04/25/V9anObAtLQ4lhsU.png"></p>
+<p><img src="https://i.loli.net/2021/04/25/zmAwdDPi6nuYhGZ.png"></p>
+<p><img src="https://i.loli.net/2021/04/25/g1Rawx3m48yXjdQ.png"></p>
+<h3 id="5-2-MobileNet-V2"><a href="#5-2-MobileNet-V2" class="headerlink" title="5.2 MobileNet V2"></a>5.2 MobileNet V2</h3><p><img src="https://i.loli.net/2021/04/25/bGuwxOJPI3qpKN9.png"></p>
+<p><img src="https://i.loli.net/2021/04/25/aiMUoZCcSuHQlnR.png"></p>
+<p><img src="https://i.loli.net/2021/04/25/sG3n6jDYAEB9hax.png"></p>
+<p><img src="https://i.loli.net/2021/04/25/YOXkvGzIQ7jRm3b.png"></p>
+<h3 id="5-3-MobileNet-V3"><a href="#5-3-MobileNet-V3" class="headerlink" title="5.3 MobileNet V3"></a>5.3 MobileNet V3</h3><p><img src="https://i.loli.net/2021/04/25/DrTMbqkduZB83Xj.png"></p>
+<p><img src="https://i.loli.net/2021/04/25/drKbAzp1g5qNJ6h.png"></p>
+<p>SE模块 ：</p>
+<p><img src="https://i.loli.net/2021/04/25/hLVgcxXSInWTjBl.png"></p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>Author：<a href="http://example.com">John Doe</a>
-            <p>原文链接：<a href="http://example.com/2020/12/21/tf-gpu/">http://example.com/2020/12/21/tf-gpu/</a>
-            <p>发表日期：<a href="http://example.com/2020/12/21/tf-gpu/">December 21st 2020, 4:49:38 pm</a>
-            <p>更新日期：<a href="http://example.com/2020/12/21/tf-gpu/">December 21st 2020, 4:57:29 pm</a>
+            <p>原文链接：<a href="http://example.com/2021/04/25/Image_Classfication/">http://example.com/2021/04/25/Image_Classfication/</a>
+            <p>发表日期：<a href="http://example.com/2021/04/25/Image_Classfication/">April 25th 2021, 2:40:04 pm</a>
+            <p>更新日期：<a href="http://example.com/2021/04/25/Image_Classfication/">April 25th 2021, 5:37:23 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -449,17 +447,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/01/28/base_env/" title= "base_env(windows下)">
-                    <div class="nextTitle">base_env(windows下)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/12/06/IDEA_DeBug/" title= "IDEA_Debug">
-                    <div class="prevTitle">IDEA_Debug</div>
+                <a href= "/2021/04/23/Object%20Detection/" title= "Object Detection">
+                    <div class="prevTitle">Object Detection</div>
                 </a>
             
         </li>
@@ -582,7 +575,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEtensorflow%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">配置tensorflow环境</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-AlexNet"><span class="toc-number">1.</span> <span class="toc-text">1 AlexNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-VGG"><span class="toc-number">2.</span> <span class="toc-text">2 VGG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-GooleNet"><span class="toc-number">3.</span> <span class="toc-text">3 GooleNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-RestNet"><span class="toc-number">4.</span> <span class="toc-text">4 RestNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-MobileNet"><span class="toc-number">5.</span> <span class="toc-text">5 MobileNet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-MobileNet-V1"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 MobileNet V1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-MobileNet-V2"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 MobileNet V2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-MobileNet-V3"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 MobileNet V3</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
