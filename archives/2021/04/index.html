@@ -412,34 +412,12 @@
 5.2 MobileNet V2
 
 
-这个n表示我们使用多少个该倒残差结构
+这个n表示我们使用多少个该倒残差结构，这个图上s仅仅是针对的第一个倒残差结构的第一层，如果有两个倒残差结构，
+那么第二个倒残差结构的第一层就是1，和图上无关。
+这个扩展因子t指的是倒残差结构的第一层1 * 1卷积的输出channel是输入channel的多少倍，也就是一共有t * k个1 * 1 的卷积核。具体可以看上面一张图。
 
 5.3 MobileNet V3
-创新1：更新Block
-
-SE模块 ：
-
-更新的激活函数：
-
-创新2：重新设计耗时层结构
-
-网络设计：
-
-6 ShuffleNet6.1 ShuffleNet V1
-
-
-6.2 ShuffleNet V2
-
-
-
-
-
-7 EfficientNet
-
-
-
-
-
+创新1：更新Blo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
