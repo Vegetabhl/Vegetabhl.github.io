@@ -27,17 +27,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1 常用命令 列举当前所有环境  1conda env list                    &#x2F;&#x2F;显示所有的虚拟环境     创建虚拟环境  1conda create -n your_env_name python&#x3D;3.x #也可以在python后面直接输入想要安装的库，但是不建议，最好统一pip安装     删除某个虚拟环境  1conda remove">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/01/28/base_env/4.png">
-<meta property="og:image" content="http://example.com/2021/01/28/base_env/5.png">
-<meta property="og:image" content="http://example.com/2021/01/28/base_env/6.png">
-<meta property="og:image" content="http://example.com/2021/01/28/base_env/1.png">
-<meta property="og:image" content="http://example.com/2021/01/28/base_env/2.png">
-<meta property="og:image" content="http://example.com/2021/01/28/base_env/3.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/12/REG7vtUXzj83hxN.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/12/b8L9fN7gSstcPwo.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/12/jisUFLdWYt9E43k.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/12/LTYoRPD8WcwqbEl.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/12/bOvAmu8RrnM52Jy.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/12/ABw87TRnSUv93X1.png">
 <meta property="article:published_time" content="2021-01-28T11:41:12.984Z">
-<meta property="article:modified_time" content="2021-04-29T13:28:24.068Z">
+<meta property="article:modified_time" content="2021-05-12T04:37:52.553Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/01/28/base_env/4.png">
+<meta name="twitter:image" content="https://i.loli.net/2021/05/12/REG7vtUXzj83hxN.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
@@ -513,7 +513,7 @@ height:50vh;
 <p>//或者可以直接conda命令在不同环境下安装不同版本cudatoolkit，区分管理。（建议这样做，<strong>更建议只用</strong>conda命令创建环境，其余全部用pip命令来安装，可以本采用本地安装的方式安装多个不同版本cuda和cudnn会更直观一些）</p>
 <p><strong>这里要提一下，如果采用conda install tensorflow-gpu==1.12.0这种命令形式，它会连带把比如cudatoolkit，cudnn这些全部给安装好，类似集成化的形式。</strong></p>
 <h3 id="2-2-PyTorch安装"><a href="#2-2-PyTorch安装" class="headerlink" title="2.2 PyTorch安装"></a>2.2 PyTorch安装</h3><p><a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/#osx-1">https://pytorch.org/get-started/previous-versions/#osx-1</a></p>
-<p><img src="/2021/01/28/base_env/4.png" alt="image-20210201182200311"></p>
+<p><img src="https://i.loli.net/2021/05/12/REG7vtUXzj83hxN.png"></p>
 <p><strong>1 查看版本</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line">exit()</span><br></pre></td></tr></table></figure>
 
@@ -523,11 +523,11 @@ height:50vh;
 
 
 <p><strong>3 注意</strong>：PyTorch 将 CUDA Runtime API 内置到了他自己的 Python 包里。也就是说 PyTorch 是自带 Runtime API 的，不需要在安装 cuda-toolkit 😥（cuda-toolkit 就是安装 CUDA Runtime API）</p>
-<p><img src="/2021/01/28/base_env/5.png" alt="image-20210226170244767"></p>
-<h2 id="3-构建配置版本对应关系查看"><a href="#3-构建配置版本对应关系查看" class="headerlink" title="3 构建配置版本对应关系查看"></a>3 构建配置版本对应关系查看</h2><p><img src="/2021/01/28/base_env/6.png" alt="image-20210201182200311"></p>
-<h3 id="3-1-windows（Tensorflow）"><a href="#3-1-windows（Tensorflow）" class="headerlink" title="3.1 windows（Tensorflow）"></a>3.1 windows（Tensorflow）</h3><p><img src="/2021/01/28/base_env/1.png" alt="img"></p>
-<h3 id="3-2-Linux-macOS下（Tensorflow）"><a href="#3-2-Linux-macOS下（Tensorflow）" class="headerlink" title="3.2 Linux/macOS下（Tensorflow）"></a>3.2 Linux/macOS下（Tensorflow）</h3><p><img src="/2021/01/28/base_env/2.png" alt="img"></p>
-<h2 id="4-CUDA对应的NVIDIA驱动版本"><a href="#4-CUDA对应的NVIDIA驱动版本" class="headerlink" title="4 CUDA对应的NVIDIA驱动版本"></a>4 CUDA对应的NVIDIA驱动版本</h2><p><img src="/2021/01/28/base_env/3.png" alt="img"></p>
+<p><img src="https://i.loli.net/2021/05/12/b8L9fN7gSstcPwo.png"></p>
+<h2 id="3-构建配置版本对应关系查看"><a href="#3-构建配置版本对应关系查看" class="headerlink" title="3 构建配置版本对应关系查看"></a>3 构建配置版本对应关系查看</h2><p><img src="https://i.loli.net/2021/05/12/jisUFLdWYt9E43k.png"></p>
+<h3 id="3-1-windows（Tensorflow）"><a href="#3-1-windows（Tensorflow）" class="headerlink" title="3.1 windows（Tensorflow）"></a>3.1 windows（Tensorflow）</h3><p><img src="https://i.loli.net/2021/05/12/LTYoRPD8WcwqbEl.png"></p>
+<h3 id="3-2-Linux-macOS下（Tensorflow）"><a href="#3-2-Linux-macOS下（Tensorflow）" class="headerlink" title="3.2 Linux/macOS下（Tensorflow）"></a>3.2 Linux/macOS下（Tensorflow）</h3><p><img src="https://i.loli.net/2021/05/12/bOvAmu8RrnM52Jy.png"></p>
+<h2 id="4-CUDA对应的NVIDIA驱动版本"><a href="#4-CUDA对应的NVIDIA驱动版本" class="headerlink" title="4 CUDA对应的NVIDIA驱动版本"></a>4 CUDA对应的NVIDIA驱动版本</h2><p><img src="https://i.loli.net/2021/05/12/ABw87TRnSUv93X1.png"></p>
 <p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html">https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html</a></p>
 <h2 id="5-cuda和cudnn的对应关系"><a href="#5-cuda和cudnn的对应关系" class="headerlink" title="5 cuda和cudnn的对应关系"></a>5 cuda和cudnn的对应关系</h2><p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive#a-collapse742-10">https://developer.nvidia.com/rdp/cudnn-archive#a-collapse742-10</a></p>
 <p>尽量不需要乱动cudnn</p>
@@ -568,7 +568,7 @@ height:50vh;
             <p>Author：<a href="http://example.com">John Doe</a>
             <p>原文链接：<a href="http://example.com/2021/01/28/base_env/">http://example.com/2021/01/28/base_env/</a>
             <p>发表日期：<a href="http://example.com/2021/01/28/base_env/">January 28th 2021, 7:41:12 pm</a>
-            <p>更新日期：<a href="http://example.com/2021/01/28/base_env/">April 29th 2021, 9:28:24 pm</a>
+            <p>更新日期：<a href="http://example.com/2021/01/28/base_env/">May 12th 2021, 12:37:52 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
