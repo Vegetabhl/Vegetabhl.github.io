@@ -512,16 +512,11 @@ height:50vh;
 
 1.2.3 训练过程-边界框回归损失
 
-1.3  Faster-CNN1.3.1 整体结构
-1.3.2 算法推理过程
-1.3.3 训练过程
-正负样本机制选取策略（训练阶段）：
+1.3  Faster-CNN1.3.0 RPN参考：
+https://www.cnblogs.com/Terrypython/p/10584384.html
+这里需要说下，下面这张图上的9是每个特征点对应的anchor个数，也就是分配的9个，所有的anchor个数应该等于对应下图的16 * 16 *9。
 
-这里只写了RPN分类损失，对于边界框回归损失和Fsat-RCNN写的一样
-
-原论文采用的分步训练分步训练RPN网络和Fast-RCNN网络，现在更多的是采用联合训练的办法
-
-2 one-stage2.1 yolov12.2 y...
+问题：如果特征图上一个特征点（对应一维特征向量）的感受...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
